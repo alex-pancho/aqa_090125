@@ -1,32 +1,37 @@
 # task 01 == Виправте синтаксичні помилки
 print("Hello", end = " ")
-    print("world!")
+print("world!")
 
 # task 02 == Виправте синтаксичні помилки
 hello = "Hello"
 world = "world"
 if True:
-print(f"{hello} {world}!")
+    print(f"{hello} {world}!")
 
 # task 03  == Вcтавте пропущену змінну у ф-цію print
 for letter in "Hello world!":
-    print()
+    print(letter)
 
 # task 04 == Зробіть так, щоб кількість бананів була
 # завжди в чотири рази більша, ніж яблук
 apples = 2
-banana = x
+banana = apples * 4
+print(f"{apples} apples and {banana} bananas")
 
 # task 05 == виправте назви змінних
-1_storona = 1
-?torona_2 = 2
-сторона_3 = 3
-$torona_4 = 4
+side_1 = 1
+side_2 = 2
+side_3 = 3
+side_4 = 4
 
 # task 06 == Порахуйте периметр фігури з task 05
 # та виведіть його для користувача
-perimetery = ? + ? + ? + ?
-print()
+side_1 = 1
+side_2 = 2
+side_3 = 3
+side_4 = 4
+perimetery = side_1 + side_2 + side_3 + side_4
+print("P={}".format(perimetery))
 
 
 """
@@ -40,6 +45,11 @@ print()
 У саду посадили 4 яблуні. Груш на 5 більше яблунь, а слив - на 2 менше.
 Скільки всього дерев посадили в саду?
 """
+apples=4
+pears=apples+5
+plums=apples-2
+summ=apples+pears+plums
+print ("Всього посадили %s дерев" %summ)
 
 # task 08
 """
@@ -47,6 +57,10 @@ print()
 Після обіду температура опустилася на 10 градусів.
 Надвечір потепліло на 4 градуси. Яка температура надвечір?
 """
+temperature_morning=12
+temperature_day=temperature_morning-10
+temperature_evening=temperature_day+4
+print ("Надвечір температура була %s°" %temperature_evening)
 
 # task 09
 """
@@ -54,6 +68,10 @@ print()
 1 хлопчик захворів та 2 дівчинки не прийшли сьогодні.
 Скількі сьогодні дітей у театральному гуртку?
 """
+boy_all=24
+girl_all=boy_all//2
+absent=1+2
+print ("Сьогодні " + str(girl_all+boy_all-absent) + " дитини у театральному гуртку")
 
 # task 10
 """
@@ -61,3 +79,10 @@ print()
 а третя - як половина вартості першої та другої разом.
 Скільки будуть коштувати усі книги, якщо купити по одному примірнику?
 """
+book_1=8
+book_2=book_1+2
+book_3=(book_1+book_2)/2
+three_books=book_1+book_2+book_3
+hryvnias = int(three_books)  
+kopecks = round((three_books - hryvnias)*100)
+print(f"До оплати {hryvnias} гривень {kopecks:02d} копійок")
