@@ -126,6 +126,6 @@ else:
 ний бак?
 """
 gasoline_amount = 16 * 9
-pit_stop_quantity = gasoline_amount // 48 - 1
+pit_stop_quantity = gasoline_amount // 48 - 1 if gasoline_amount % 48 == 0 else gasoline_amount // 48
 print(f"Знадобиться {gasoline_amount} л пального.")
 print(f"Під час поїздки треба буде заїхати на заправку {pit_stop_quantity} разів.")
