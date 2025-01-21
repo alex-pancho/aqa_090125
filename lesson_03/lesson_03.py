@@ -104,6 +104,7 @@ my_tuple = (0, 2, 4, 6)
 print(my_tuple[0])
 # my_tuple[0] = 1  # ПОМИЛКА!!!!
 
+
 ## Списки [Lists]
 new_list = ["a", 0, 1.2, hello]
 print(new_list[-1])
@@ -112,6 +113,7 @@ new_list[-1] = hello
 print(new_list[-1])
 alphabet = ["a", "b", "c", "a"]
 print(alphabet)
+
 
 ## Набори {Sets}
 simple_set = {1, 2, 3, 1}
