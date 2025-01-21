@@ -114,7 +114,7 @@ import math
 total_photo = 232
 photo_on_page = 8
 total_pages = math.ceil(total_photo/photo_on_page)
-print(f"Ігорю задобиться {total_pages} сторінок, щоб вклеїти всі свої фото")
+print(f"Ігорю знадобиться {total_pages} сторінок, щоб вклеїти всі свої фото")
 
 # task 10
 """
