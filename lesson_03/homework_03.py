@@ -1,18 +1,23 @@
-alice_in_wonderland = '"Would you tell me, please, which way I ought to go from here?"\n"That depends a good deal on where you want to get to," said the Cat.\n"I don\'t much care where ——" said Alice.\n"Then it doesn\'t matter which way you go," said the Cat.\n"—— so long as I get somewhere," Alice added as an explanation.\n"Oh, you\'re sure to do that," said the Cat, "if you only walk long enough."'
+alice_in_wonderland = ('"Would you tell me, please, which way I ought to go from here?"\n'
+                       '"That depends a good deal on where you want to get to," said the Cat.\n'
+                       '"I don\'t much care where ——" said Alice.\n"'
+                       'Then it doesn\'t matter which way you go," said the Cat.\n'
+                       '"—— so long as I get somewhere," Alice added as an explanation.\n'
+                       '"Oh, you\'re sure to do that," said the Cat, "if you only walk long enough."')
 # task 01 == Розділіть змінну alice_in_wonderland так, щоб вона займала декілька фізичних лінії
 # task 02 == Знайдіть та екрануйте всі символи одинарної дужки у тексті
 # task 03 == Виведіть змінну alice_in_wonderland на друк
-messages_array = alice_in_wonderland.split('\n')
-
-# Це скоріш за все занадто, але мені було цікаво динамічно назначити змінні.
-for number, temp_message in enumerate(messages_array, 1):
-    locals()["_".join(['message', str(number)])] = temp_message
-
-# Зараз є декілька фізичних ліній (змінних) в локальній області.
-variables_list = [element for element in locals() if str(element).startswith('message_')]
-
-for variable in variables_list:
-    print(f"{variable}: {locals()[variable]}")
+# messages_array = alice_in_wonderland.split('\n')
+#
+# # Це скоріш за все занадто, але мені було цікаво динамічно назначити змінні.
+# for number, temp_message in enumerate(messages_array, 1):
+#     locals()["_".join(['message', str(number)])] = temp_message
+#
+# # Зараз є декілька фізичних ліній (змінних) в локальній області.
+# variables_list = [element for element in locals() if str(element).startswith('message_')]
+#
+# for variable in variables_list:
+#     print(f"{variable}: {locals()[variable]}")
 
 print(alice_in_wonderland)
 
