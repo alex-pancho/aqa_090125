@@ -1,7 +1,15 @@
-alice_in_wonderland = '"Would you tell me, please, which way I ought to go from here?"\n"That depends a good deal on where you want to get to," said the Cat.\n"I don't much care where ——" said Alice.\n"Then it doesn't matter which way you go," said the Cat.\n"—— so long as I get somewhere," Alice added as an explanation.\n"Oh, you're sure to do that," said the Cat, "if you only walk long enough."'
 # task 01 == Розділіть змінну alice_in_wonderland так, щоб вона займала декілька фізичних лінії
 # task 02 == Знайдіть та екрануйте всі символи одинарної дужки у тексті
 # task 03 == Виведіть змінну alice_in_wonderland на друк
+alice_in_wonderland = (
+'"Would you tell me, please, which way I ought to go from here?"\n'
+'"That depends a good deal on where you want to get to," said the Cat.\n'
+'"I don\'t much care where ——" said Alice.\n'
+'"Then it doesn\'t matter which way you go," said the Cat.\n'
+'"—— so long as I get somewhere," Alice added as an explanation.\n'
+'"Oh, you\'re sure to do that," said the Cat, "if you only walk long enough."'
+)
+print(alice_in_wonderland)
 
 
 """
@@ -16,7 +24,10 @@ alice_in_wonderland = '"Would you tell me, please, which way I ought to go from 
 моря становить 37 800 км2. Яку площу займають Чорне та Азов-
 ське моря разом?
 """
-
+black_sea_area = 436402
+azov_sea_area = 37800
+total_area = black_sea_area + azov_sea_area
+print(f"Чорне і Азовське моря разом займають площу {total_area} км²")
 
 # task 05
 """
@@ -25,7 +36,15 @@ alice_in_wonderland = '"Would you tell me, please, which way I ought to go from 
 250 449 товарів. На другому та третьому – 222 950 товарів.
 Знайдіть кількість товарів, що розміщені на кожному складі.
 """
-
+total_goods = 375291
+first_and_second = 250449
+second_and_third = 222950
+second = second_and_third + first_and_second - total_goods
+first = first_and_second - second
+third = second_and_third - second
+print(f"На першому складі розміщено {first} товарів. "\
+    f"На другому складі - {second} товарів. "\
+    f"А на третьому складі - {third} товарів")
 
 # task 06
 """
@@ -34,7 +53,10 @@ alice_in_wonderland = '"Would you tell me, please, which way I ought to go from 
 вати необхідно буде півтора року по 1179 грн/місяць. Обчисліть
 вартість комп’ютера.
 """
-
+monthly_paymant = 1179
+months = 1.5 * 12
+total_cost = months * monthly_paymant
+print(f"Повна вартість комп'ютера становить {total_cost:.2f} гривень")
 
 # task 07
 """
@@ -43,7 +65,18 @@ a) 8019 : 8     d) 7248 : 6
 b) 9907 : 9     e) 7128 : 5
 c) 2789 : 5     f) 19224 : 9
 """
-
+data = [
+    ("a", 8019, 8),
+    ("b", 9907, 9),
+    ("c", 2789, 5),
+    ("d", 7248, 6),
+    ("e", 7128, 5),
+    ("f", 19224, 9)
+]
+print(f"Остача від ділення чисел:")
+for item, number, divisor in data:
+    remainder = number % divisor
+    print(f"{item}) {number}:{divisor}={remainder}")
 
 # task 08
 """
@@ -57,6 +90,17 @@ c) 2789 : 5     f) 19224 : 9
 Торт            1           350 грн
 Вода            3           21 грн
 """
+product = [
+    ("Піца велика", 4, 274),
+    ("Піца середня", 2, 218),
+    ("Сік", 4, 35),
+    ("Торт", 1, 350),
+    ("Вода", 3, 21)
+]
+total_birthday_cost = 0
+for product_name, quantity, price in product:
+    total_birthday_cost += quantity*price
+print(f"Загальна вартість замовлення Іринки на день народження складає {total_birthday_cost} грн")
 
 
 # task 09
@@ -66,7 +110,11 @@ c) 2789 : 5     f) 19224 : 9
 розміщено щонайбільше 8 фото. Скільки сторінок знадобиться
 Ігорю, щоб вклеїти всі фото?
 """
-
+import math
+total_photo = 232
+photo_on_page = 8
+total_pages = math.ceil(total_photo/photo_on_page)
+print(f"Ігорю задобиться {total_pages} сторінок, щоб вклеїти всі свої фото")
 
 # task 10
 """
@@ -79,3 +127,12 @@ c) 2789 : 5     f) 19224 : 9
 равку під час цієї подорожі, кожного разу заправляючи пов-
 ний бак?
 """
+distance = 1600
+consumption = 9
+tank_volume = 48
+total_fuel = (distance//100)*consumption #Скільки потрібно всього бензину
+distance_on_one_tank = (tank_volume/consumption)*100 #максимальна відстань на одному баці
+refuels = math.ceil(total_fuel/tank_volume)-1 #скільки потрібно зробити зуринок на заправку, за умови, що виїхали вони з повним баком
+print(f"Всьго на поїздку родині знадобиться {total_fuel} літрів бензину")
+print(f"По дорозі їм знадобиться {refuels} рази заїхати на заправку, "\
+      f"за умови, що виїхали вони з повним баком" )
