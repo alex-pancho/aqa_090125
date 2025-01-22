@@ -1,8 +1,14 @@
-alice_in_wonderland = '"Would you tell me, please, which way I ought to go from here?"\n"That depends a good deal on where you want to get to," said the Cat.\n"I don't much care where ——" said Alice.\n"Then it doesn't matter which way you go," said the Cat.\n"—— so long as I get somewhere," Alice added as an explanation.\n"Oh, you're sure to do that," said the Cat, "if you only walk long enough."'
 # task 01 == Розділіть змінну alice_in_wonderland так, щоб вона займала декілька фізичних лінії
 # task 02 == Знайдіть та екрануйте всі символи одинарної дужки у тексті
 # task 03 == Виведіть змінну alice_in_wonderland на друк
 
+alice_in_wonderland = (
+    '"Would you tell me, please, which way I ought to go from here?"\n"That depends a good deal on where you want'
+    ' to get to," said the Cat.\n"I don\'t much care where ——" said Alice.\n"Then it doesn\'t matter which way you '
+    'go," said the Cat.\n"—— so long as I get somewhere," Alice added as an explanation.\n"Oh, you\'re sure to do '
+    'that," said the Cat, "if you only walk long enough."'
+)
+print(alice_in_wonderland)
 
 """
     # Задачі 04 -10:
@@ -17,6 +23,12 @@ alice_in_wonderland = '"Would you tell me, please, which way I ought to go from 
 ське моря разом?
 """
 
+black_sea_area = 436402
+azov_sea_area = 37800
+
+total_seas_area = black_sea_area + azov_sea_area
+print(f"{total_seas_area=} km2")
+
 
 # task 05
 """
@@ -26,6 +38,20 @@ alice_in_wonderland = '"Would you tell me, please, which way I ought to go from 
 Знайдіть кількість товарів, що розміщені на кожному складі.
 """
 
+sum_first_second_warehouse_products_count = 250449
+sum_second_third_warehouse_products_count = 222950
+sum_first_second_third_warehouse_products_count = 375291
+
+third_warehouse_products_count = (
+        sum_first_second_third_warehouse_products_count - sum_first_second_warehouse_products_count
+)
+second_warehouse_products_count = sum_second_third_warehouse_products_count - third_warehouse_products_count
+
+first_warehouse_products_count = sum_first_second_warehouse_products_count - second_warehouse_products_count
+
+print(f"Products in first warehouse are: {first_warehouse_products_count}")
+print(f"Products in second warehouse are: {second_warehouse_products_count}")
+print(f"Products in third warehouse are: {third_warehouse_products_count}")
 
 # task 06
 """
@@ -34,7 +60,10 @@ alice_in_wonderland = '"Would you tell me, please, which way I ought to go from 
 вати необхідно буде півтора року по 1179 грн/місяць. Обчисліть
 вартість комп’ютера.
 """
-
+computer_price_per_month = 1179
+period = 12 * 1.5
+total_compyter_price = computer_price_per_month * period
+print(f"Total computer price is {total_compyter_price} UAH")
 
 # task 07
 """
@@ -44,6 +73,11 @@ b) 9907 : 9     e) 7128 : 5
 c) 2789 : 5     f) 19224 : 9
 """
 
+# second variant
+print(
+    f"a) 8019 : 8 = {8019 % 8},\nb) 9907 : 9 = {9907 % 9},\nc) 2789 : 5 = {2789 % 5},\n"
+    f"d) 7248 : 6 = {7248 % 6},\ne) 7128 : 5 = {7128 % 5},\nf) 19224 : 9 = {19224 % 9}",
+)
 
 # task 08
 """
@@ -58,6 +92,26 @@ c) 2789 : 5     f) 19224 : 9
 Вода            3           21 грн
 """
 
+big_pizza_count = 4
+big_pizza_price = 274
+
+middle_pizza_count = 2
+middle_pizza_price = 218
+
+juice_count = 4
+juice_price = 35
+
+cake_count = 1
+cake_price = 350
+
+water_count = 3
+water_price = 21
+
+total_products_price = (
+        (big_pizza_count * big_pizza_price) + (middle_pizza_count * middle_pizza_price) + (juice_count * juice_price) +
+        (cake_count * cake_price) + (water_count * water_price)
+)
+print(f"{total_products_price=} UAH")
 
 # task 09
 """
@@ -66,7 +120,10 @@ c) 2789 : 5     f) 19224 : 9
 розміщено щонайбільше 8 фото. Скільки сторінок знадобиться
 Ігорю, щоб вклеїти всі фото?
 """
-
+total_photo_count = 232
+max_photo_count_per_page = 8
+page_count_with_photo = total_photo_count / max_photo_count_per_page
+print(f"{page_count_with_photo=}")
 
 # task 10
 """
@@ -79,3 +136,12 @@ c) 2789 : 5     f) 19224 : 9
 равку під час цієї подорожі, кожного разу заправляючи пов-
 ний бак?
 """
+
+distance = 1600
+gasoline_liters_per_100_km = 9
+fuel_tank_capacity = 48
+
+total_gasoline_liters_for_distance = gasoline_liters_per_100_km * (distance / 100)
+stop_count = (total_gasoline_liters_for_distance / fuel_tank_capacity) - 1  # the gas tank will be full before leaving
+
+print(f"{total_gasoline_liters_for_distance=}, \n{stop_count=}")
