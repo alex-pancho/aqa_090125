@@ -1,8 +1,14 @@
-alice_in_wonderland = '"Would you tell me, please, which way I ought to go from here?"\n"That depends a good deal on where you want to get to," said the Cat.\n"I don't much care where ——" said Alice.\n"Then it doesn't matter which way you go," said the Cat.\n"—— so long as I get somewhere," Alice added as an explanation.\n"Oh, you're sure to do that," said the Cat, "if you only walk long enough."'
+# alice_in_wonderland = '"Would you tell me, please, which way I ought to go from here?"\n"That depends a good deal on where you want to get to," said the Cat.\n"I don't much care where ——" said Alice.\n"Then it doesn't matter which way you go," said the Cat.\n"—— so long as I get somewhere," Alice added as an explanation.\n"Oh, you're sure to do that," said the Cat, "if you only walk long enough."'
 # task 01 == Розділіть змінну alice_in_wonderland так, щоб вона займала декілька фізичних лінії
 # task 02 == Знайдіть та екрануйте всі символи одинарної дужки у тексті
 # task 03 == Виведіть змінну alice_in_wonderland на друк
 
+alise_fis_line = f'"Would you tell me, please, which way I ought to go from here?"\n' \
+f'"That depends a good deal on where you want to get to", said the cat.\n' \
+f'"I don\'t much care where ——" said Alice.\n' \
+f'"—— so long as I get somewhere," Alice added as an explanation.\n' \
+f'"Oh, you\'re sure to do that," said the Cat, "if you only walk long enough."'
+print(alise_fis_line)
 
 """
     # Задачі 04 -10:
@@ -16,7 +22,16 @@ alice_in_wonderland = '"Would you tell me, please, which way I ought to go from 
 моря становить 37 800 км2. Яку площу займають Чорне та Азов-
 ське моря разом?
 """
+print("\ntask 04")
+square_black_sea = int(436402)
+square_azov_sea = int(37800)
+sum_square = int(square_black_sea + square_azov_sea)
 
+explaination = f'Визначимо загальну площу, яку займають Чорне та Азовське моря:\n'\
+f'Додамо до площі Чорного моря {square_black_sea} площу Азовського моря {square_azov_sea} = 436402 + 37800\n'\
+f'Результат: {sum_square}.'
+
+print(explaination)
 
 # task 05
 """
@@ -25,7 +40,24 @@ alice_in_wonderland = '"Would you tell me, please, which way I ought to go from 
 250 449 товарів. На другому та третьому – 222 950 товарів.
 Знайдіть кількість товарів, що розміщені на кожному складі.
 """
+print("\ntask 05")
+warehouse_1 = 375291 - 222950
+warehouse_3 = 375291 - 250449
+warehouse_2 = 222950 - warehouse_3
 
+print("Визначимо змінні рівняння:\nСклад 1 = x\nСклад 2 = y\nСклад 3 = z")
+print("Тепер складемо рівняння зі змінними, відповідно до умов задачі:\n 1) x + y + z = 375291\n 2) x + y = 250449\n 3) y + z = 222950")
+res_1 = f'\nВиходячи із рівняння 1) та 3) визначимо змінну x, тобто, склад 1: x = (x + y + z) - (y + z) = {warehouse_1}'
+print(res_1)
+res_3 = f'Виходячи із рівняння 1) та 2) визначимо змінну z, тобто, склад 3: z = (x + y + z) - (x + y) = {warehouse_3}'
+print(res_3)
+res_2 = f'Виходячи із рівняння 3) визначимо змінну y, тобто, склад 2: y = 222950 - z = {warehouse_2}'
+print(res_2)
+total_result = f'\nПідведемо підсумок:\n'\
+f'Кількість товарів, які розміщені на складі 1 (х) = {warehouse_1}\n'\
+f'Кількість товарів, які розміщені на складі 2 (y) = {warehouse_2}\n'\
+f'Кількість товарів, які розміщені на складі 3 (z) = {warehouse_3}\n'
+print(total_result)
 
 # task 06
 """
@@ -34,7 +66,15 @@ alice_in_wonderland = '"Would you tell me, please, which way I ought to go from 
 вати необхідно буде півтора року по 1179 грн/місяць. Обчисліть
 вартість комп’ютера.
 """
+print("\ntask 06")
+duration_of_payment = int(18)
+monthly_pay = int(1179)
+comp_price = int(monthly_pay * duration_of_payment)
 
+solution = f'1. Для початку визначимо, скільки місяців у півтора року, якщо в одному році - 12 місяців: 1,5 року = 12 + 6 = 18 місяців\n'\
+f'2. Далі, щоб визначити вартість комп\'ютера необхідно помножити ціну оплати за місяць ({monthly_pay}) на тривалість оплати частинами ({duration_of_payment})\n: 1179 * 18 = {comp_price}'
+print(solution)
+print("Отже, вартість комп'ютера = 21222 грн")
 
 # task 07
 """
@@ -43,7 +83,70 @@ a) 8019 : 8     d) 7248 : 6
 b) 9907 : 9     e) 7128 : 5
 c) 2789 : 5     f) 19224 : 9
 """
+print("\ntask 07")
+# a) 8019 : 8
+number_8019 = 8019
+whole_number_1 = 1002
+max_whole_number_1 = 8 * whole_number_1
+remainder_a = number_8019 - max_whole_number_1
+explanation_a = f'\nЩоб визначити залишок від ділення 8019 : 8, необхідно виконати декілька кроків:\n'\
+f'Крок 1: Розділимо 8019 / 8 = 1002,375 та виділимо цілу частину: {whole_number_1}\n'\
+f'Крок 2: Визначимо максимальне число, яке можна розділити на 8 без остачі: 8 * 1002 = {max_whole_number_1}\n'\
+f'Крок 3: Віднімемо від початкового числа (8016) число, яке ділиться на 8 без остачі та отримаємо залишок від ділення: 8019 - 8016 = {remainder_a}'
+print(explanation_a)
+how_in_python_a = f'У Python вищеописані обчислення можна замінити однією арифметичною дією : 8019 % 8'
+print(how_in_python_a)
 
+# b) 9907 : 9
+number_9907 = 9907
+whole_number_2 = 1100
+max_whole_number_2 = 9 * whole_number_2
+remainder_2 = number_9907 - max_whole_number_2
+explanation_b = f'\nЩоб визначити залишок від ділення 9907 : 9, необхідно виконати декілька кроків:\n'\
+f'Крок 1: Розділимо 9907 / 9 = 1100,777... та виділимо цілу частину: {whole_number_2}\n'\
+f'Крок 2: Визначимо максимальне число, яке можна розділити на 9 без остачі: 9 * 1100 = {max_whole_number_2}\n'\
+f'Крок 3: Віднімемо від початкового числа (9907) число, яке ділиться на 8 без остачі та отримаємо залишок від ділення: 9907 - 9900 = {remainder_2}'
+print(explanation_b)
+how_in_python_b = f'У Python вищеописані обчислення можна замінити однією арифметичною дією : 9907 % 9'
+print(how_in_python_b)
+
+# c) 2789 : 5
+number_2789 = 2789
+whole_number_3 = 557
+max_whole_number_3 = 5 * whole_number_3
+remainder_c = number_2789 - max_whole_number_3
+explanation_c = f'\nЩоб визначити залишок від ділення 2789 : 5, необхідно виконати декілька кроків:\n'\
+f'Крок 1: Розділимо 2789 / 5 = 557.8 та виділимо цілу частину: {whole_number_3}\n'\
+f'Крок 2: Визначимо максимальне число, яке можна розділити на 5 без остачі: 5 * 557 = {max_whole_number_3}\n'\
+f'Крок 3: Віднімемо від початкового числа (2789) число, яке ділиться на 5 без остачі та отримаємо залишок від ділення: 2789 - 2785 = {remainder_c}'
+print(explanation_c)
+
+# d) 7248 : 6
+number_7248 = 7248
+whole_number_4 = 7248 / 6
+explanation_d = f'\nЩоб визначити залишок від ділення 7248 : 6, необхідно виконати декілька кроків:\n'\
+f'Крок 1: Розділимо 7248 / 6 = {whole_number_4}, отже, число 7248 ділиться на 6 без остачі\n'\
+f'Висновок: Остача від ділення 7248 на 6 = 0'
+print(explanation_d)
+
+# e) 7128 : 5
+number_7128 = 7128
+whole_number_5 = 1425
+max_whole_number_5 = 5 * whole_number_5
+remainder_e = number_7128 - max_whole_number_5
+explanation_e = f'\nЩоб визначити залишок від ділення 7128 : 5, необхідно виконати декілька кроків:\n'\
+f'Крок 1: Розділимо 7128 / 5 = 1425.6 та виділимо цілу частину: {whole_number_5}\n'\
+f'Крок 2: Визначимо максимальне число, яке можна розділити на 5 без остачі: 5 * 1425 = {max_whole_number_5}\n'\
+f'Крок 3: Віднімемо від початкового числа (7128) число, яке ділиться на 5 без остачі та отримаємо залишок від ділення: 7128 - 7125 = {remainder_e}'
+print(explanation_e)
+
+# f) 19224 : 9
+number_19224 = 19224
+whole_number_6 = 19224 / 9
+explanation_f = f'\nЩоб визначити залишок від ділення 19224 : 9, необхідно:\n'\
+f'Крок 1: Розділимо 7248 / 6 = {whole_number_6}, отже, число 19224 ділиться на 9 без остачі\n'\
+f'Висновок: Остача від ділення 19224 на 9 = 0'
+print(explanation_f)
 
 # task 08
 """
@@ -57,7 +160,43 @@ c) 2789 : 5     f) 19224 : 9
 Торт            1           350 грн
 Вода            3           21 грн
 """
+print("\ntask 08")
+print("Щоб визначити суму по кожному пункту списку необхідно ціну за одну одиницю продукту помножити на його кількість")
+big_pizza = int(input("Обчисли і введи суму за великі піци: 274 * 4 = "))
+if big_pizza == int(1096):
+    print("Правильна відповідь")
+else:
+    print("Помилка. 274 * 4 = 1096")
 
+middle_pizza = int(input("Обчисли і введи суму за середні піци: 218 * 2 = "))
+if middle_pizza == int(436):
+    print("Правильна відповідь")
+else:
+    print("Помилка. 218 * 2 = 436")
+
+juice = int(input("Обчисли і введи суму за сік: 35 * 4 = "))
+if juice == int(140):
+    print("Правильна відповідь")
+else:
+    print("Помилка. 35 * 4 = 140")
+
+cake = int(input("Обчисли і введи суму за торт: 350 * 1 = "))
+if cake == int(350):
+    print("Правильна відповідь")
+else:
+    print("Помилка. 350 * 1 = 350")
+
+water = int(input("Обчисли і введи суму за воду: 21 * 3 = "))
+if water == int(63):
+    print("Правильна відповідь")
+else:
+    print("Помилка. 21 * 3 = 63")
+
+order_amount = int(input("\nДалі, щоб визначити загальну варість замовлення, додай між собою вартості кожного пункту списку та запиши результат: \n 1096 + 436 + 140 + 350 + 63 = "))
+if order_amount == int(2085):
+    print("Правильна відповідь")
+else:
+    print("Помилка. 1096 + 436 + 140 + 350 + 63 = 2085")
 
 # task 09
 """
@@ -66,7 +205,14 @@ c) 2789 : 5     f) 19224 : 9
 розміщено щонайбільше 8 фото. Скільки сторінок знадобиться
 Ігорю, щоб вклеїти всі фото?
 """
+print("\ntask 09")
+photos = 232
+photo_on_page = 8
+number_of_pages = int(photos / photo_on_page)
 
+pages = f'Щоб порахувати кількість сторінок, на які помістяться всі фото, необхідно:\n' \
+f'Загальну кількість фото ({photos}) поділити на максимальну кількість фото на одній сторінці ({photo_on_page}) = 232 / 8 = {number_of_pages}'
+print(pages)
 
 # task 10
 """
@@ -79,3 +225,19 @@ c) 2789 : 5     f) 19224 : 9
 равку під час цієї подорожі, кожного разу заправляючи пов-
 ний бак?
 """
+print("\ntask 10")
+distance = int(1600)
+km_100 = int(100)
+fuel_per_100_km = int(9)
+gas_tank = int(48)
+times_fuel_running_out = int(distance / km_100) # 16
+fuel_for_travel = int(times_fuel_running_out * fuel_per_100_km) # 144
+#print(fuel_for_travel)
+times_to_refuel = int(fuel_for_travel / gas_tank)
+#print(times_to_refuel)
+
+solution_task_10 = f'Маючи кількість витрат на кожні 100 км, можемо визначити, кількість разів, необхідних для заправки\n - розділимо загальну відстань ({distance}) на відстань, коли бак порожнішає ({km_100}):\n 1600 / 100 = {times_fuel_running_out} \n'\
+f'Тобто, 16 разів буде спорожнюватися бак ємністю 48 л\n'\
+f'\n1) Визначимо кількість л бензину, необхідних для подорожі, для цьго\n кількість разів, необхідних для заправки ({times_fuel_running_out}) помножимо на витрати бензину за кожні 100 км ({fuel_per_100_km}):\n 16 * 9 = {fuel_for_travel}\n'\
+f'\n2) Тепер визначимо, скільки разів родині треба буде заїхати на заправку: розділимо загальну кількість бензину для подорожі ({fuel_for_travel}) на ємність баку ({gas_tank}):\n 144 / 48 = {times_to_refuel}'
+print(solution_task_10)
