@@ -74,6 +74,7 @@ print (adwentures_of_tom_sawer_sentences)
 """ Виведіть четверте речення з adwentures_of_tom_sawer_sentences.
 Перетворіть рядок у нижній регістр.
 """
+
 adwentures_of_tom_sawer_sentence_4 = adwentures_of_tom_sawer_sentences[3].lower()
 print (adwentures_of_tom_sawer_sentence_4)
 
