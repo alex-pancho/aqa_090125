@@ -23,9 +23,9 @@ print(alise_fis_line)
 ське моря разом?
 """
 print("\ntask 04")
-square_black_sea = int(436402)
-square_azov_sea = int(37800)
-sum_square = int(square_black_sea + square_azov_sea)
+square_black_sea = 436402
+square_azov_sea = 37800
+sum_square = square_black_sea + square_azov_sea
 
 explaination = f'Визначимо загальну площу, яку займають Чорне та Азовське моря:\n'\
 f'Додамо до площі Чорного моря {square_black_sea} площу Азовського моря {square_azov_sea} = 436402 + 37800\n'\
@@ -67,9 +67,9 @@ print(total_result)
 вартість комп’ютера.
 """
 print("\ntask 06")
-duration_of_payment = int(18)
-monthly_pay = int(1179)
-comp_price = int(monthly_pay * duration_of_payment)
+duration_of_payment = 18
+monthly_pay = 1179
+comp_price = monthly_pay * duration_of_payment
 
 solution = f'1. Для початку визначимо, скільки місяців у півтора року, якщо в одному році - 12 місяців: 1,5 року = 12 + 6 = 18 місяців\n'\
 f'2. Далі, щоб визначити вартість комп\'ютера необхідно помножити ціну оплати за місяць ({monthly_pay}) на тривалість оплати частинами ({duration_of_payment})\n: 1179 * 18 = {comp_price}'
@@ -163,37 +163,37 @@ print(explanation_f)
 print("\ntask 08")
 print("Щоб визначити суму по кожному пункту списку необхідно ціну за одну одиницю продукту помножити на його кількість")
 big_pizza = int(input("Обчисли і введи суму за великі піци: 274 * 4 = "))
-if big_pizza == int(1096):
+if big_pizza == 1096:
     print("Правильна відповідь")
 else:
     print("Помилка. 274 * 4 = 1096")
 
 middle_pizza = int(input("Обчисли і введи суму за середні піци: 218 * 2 = "))
-if middle_pizza == int(436):
+if middle_pizza == 436:
     print("Правильна відповідь")
 else:
     print("Помилка. 218 * 2 = 436")
 
 juice = int(input("Обчисли і введи суму за сік: 35 * 4 = "))
-if juice == int(140):
+if juice == 140:
     print("Правильна відповідь")
 else:
     print("Помилка. 35 * 4 = 140")
 
 cake = int(input("Обчисли і введи суму за торт: 350 * 1 = "))
-if cake == int(350):
+if cake == 350:
     print("Правильна відповідь")
 else:
     print("Помилка. 350 * 1 = 350")
 
 water = int(input("Обчисли і введи суму за воду: 21 * 3 = "))
-if water == int(63):
+if water == 63:
     print("Правильна відповідь")
 else:
     print("Помилка. 21 * 3 = 63")
 
 order_amount = int(input("\nДалі, щоб визначити загальну варість замовлення, додай між собою вартості кожного пункту списку та запиши результат: \n 1096 + 436 + 140 + 350 + 63 = "))
-if order_amount == int(2085):
+if order_amount == 2085:
     print("Правильна відповідь")
 else:
     print("Помилка. 1096 + 436 + 140 + 350 + 63 = 2085")
@@ -208,7 +208,7 @@ else:
 print("\ntask 09")
 photos = 232
 photo_on_page = 8
-number_of_pages = int(photos / photo_on_page)
+number_of_pages = photos / photo_on_page
 
 pages = f'Щоб порахувати кількість сторінок, на які помістяться всі фото, необхідно:\n' \
 f'Загальну кількість фото ({photos}) поділити на максимальну кількість фото на одній сторінці ({photo_on_page}) = 232 / 8 = {number_of_pages}'
@@ -226,10 +226,10 @@ print(pages)
 ний бак?
 """
 print("\ntask 10")
-distance = int(1600)
-km_100 = int(100)
-fuel_per_100_km = int(9)
-gas_tank = int(48)
+distance = 1600
+km_100 = 100
+fuel_per_100_km = 9
+gas_tank = 48
 times_fuel_running_out = int(distance / km_100) # 16
 fuel_for_travel = int(times_fuel_running_out * fuel_per_100_km) # 144
 #print(fuel_for_travel)
