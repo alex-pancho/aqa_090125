@@ -1,7 +1,17 @@
-alice_in_wonderland = '"Would you tell me, please, which way I ought to go from here?"\n"That depends a good deal on where you want to get to," said the Cat.\n"I don't much care where ——" said Alice.\n"Then it doesn't matter which way you go," said the Cat.\n"—— so long as I get somewhere," Alice added as an explanation.\n"Oh, you're sure to do that," said the Cat, "if you only walk long enough."'
+# alice_in_wonderland = '"Would you tell me, please, which way I ought to go from here?"\n"That depends a good deal on where you want to get to," said the Cat.\n"I don't much care where ——" said Alice.\n"Then it doesn't matter which way you go," said the Cat.\n"—— so long as I get somewhere," Alice added as an explanation.\n"Oh, you're sure to do that," said the Cat, "if you only walk long enough."'
 # task 01 == Розділіть змінну alice_in_wonderland так, щоб вона займала декілька фізичних лінії
 # task 02 == Знайдіть та екрануйте всі символи одинарної дужки у тексті
 # task 03 == Виведіть змінну alice_in_wonderland на друк
+
+# task 01 + task 02
+alice_in_wonderland = '\"Would you tell me, please, which way I ought to go from here?\"\n'\
+                      '\"That depends a good deal on where you want to get to,\" said the Cat.\n'\
+                      '\"I don\'t much care where -\" said Alice.\n'\
+                      '\"Then it doesn\'t matter which way you go,\" said the Cat.\n'\
+                      '\"- so long as I get somewhere,\" Alice added as an explanation.\n'\
+                      '\"Oh, you\'re sure to do that,\" said the Cat, \"if you only walk long enough.\"'
+# task 03                      
+print(alice_in_wonderland)
 
 
 """
@@ -10,12 +20,22 @@ alice_in_wonderland = '"Would you tell me, please, which way I ought to go from 
     # на мову пітон і виведіть відповідь, так, щоб було
     # зрозуміло дитині, що навчається в п'ятому класі
 """
+
+
 # task 04
 """
 Площа Чорного моря становить 436 402 км2, а площа Азовського
 моря становить 37 800 км2. Яку площу займають Чорне та Азов-
 ське моря разом?
 """
+# Площа Чорного моря, км2
+black_sea_area = 436402
+# Площа Азовського моря, км2
+azov_sea_area = 37800
+# Сума площі Чорного та Азовського разом
+sum = black_sea_area + azov_sea_area
+# Вивід результату
+print('Чорне та Азовське моря разом займають:', sum, 'км2.')
 
 
 # task 05
@@ -26,6 +46,22 @@ alice_in_wonderland = '"Would you tell me, please, which way I ought to go from 
 Знайдіть кількість товарів, що розміщені на кожному складі.
 """
 
+# Всього товарів на трьох складах
+sklad1_sklad2_sklad3 = 375291
+# Всього на першому та другому
+sklad1_sklad2 = 250449
+# Всього на другому та третьому
+sklad2_sklad3 = 222950
+# Товарів на третьому складі
+sklad3 = sklad1_sklad2_sklad3 - sklad1_sklad2
+# Товарів на другому складі
+sklad2 = sklad2_sklad3 - sklad3
+# Товарів на першому складі
+sklad1 = sklad1_sklad2 - sklad2
+# кількість товарів, що розміщені на кожному складі
+print('На першому складі перебуває:', sklad1, 'товарів.') 
+print('На другому складі перебуває:', sklad2, 'товарів.')
+print('На третьому складі перебуває:', sklad3, 'товарів.')
 
 # task 06
 """
@@ -35,6 +71,15 @@ alice_in_wonderland = '"Would you tell me, please, which way I ought to go from 
 вартість комп’ютера.
 """
 
+# Оплата в грн за один місяц
+monthly_payment = 1179
+# Кількість місяців в пакеті "Оплата частинами"
+months_count = 18
+# Вартість комп'ютера
+price = monthly_payment * months_count
+# Вивід вартості комп'ютера
+print('Вартість комп’ютера:', price, 'грн.')
+
 
 # task 07
 """
@@ -43,6 +88,14 @@ a) 8019 : 8     d) 7248 : 6
 b) 9907 : 9     e) 7128 : 5
 c) 2789 : 5     f) 19224 : 9
 """
+
+# Вивід остачі від діленя чисел
+print('Остача від діленя 8019 на 8:', 8019 % 8)
+print('Остача від діленя 9907 на 9:', 9907 % 9)
+print('Остача від діленя 2789 на 5:', 2789 % 5)
+print('Остача від діленя 7248 на 6:', 7248 % 6)
+print('Остача від діленя 7128 на 5:', 7128 % 5)
+print('Остача від діленя 19224 на 9:', 19224 % 9)
 
 
 # task 08
@@ -58,6 +111,20 @@ c) 2789 : 5     f) 19224 : 9
 Вода            3           21 грн
 """
 
+# Потрібно грошей на 4 великих піци
+pizza_big_4 = 4 * 274
+# Потрібно грошей на 2 середніх піци
+pizza_medium_2 = 2 * 218
+# Потрібно грошей 4 соки
+juice_4 = 4 * 35
+# Потрібно грошей на 1 торт
+cake_1 = 350
+# Потрібно грошей на 3 води
+water_3 = 3 * 21
+# Вивід скільки грошей знадобиться для даного замовлення
+print('Для даного замовлення знадобиться:', pizza_big_4 + pizza_medium_2 + juice_4 + cake_1 + water_3, 'грн.')
+
+
 
 # task 09
 """
@@ -66,6 +133,15 @@ c) 2789 : 5     f) 19224 : 9
 розміщено щонайбільше 8 фото. Скільки сторінок знадобиться
 Ігорю, щоб вклеїти всі фото?
 """
+# Кількість фото всього
+all_photos = 232
+# Ліміт фото на одній сторінці
+photo_page_limit = 8
+# Скільки сторінок знадобиться, щоб вклеїти всі фото, враховуючи залишок від ділення
+all_pages = all_photos // photo_page_limit + (1 if all_photos % photo_page_limit > 0 else 0)
+# Вивід результату
+print('Щоб Ігорю вклеїти всі фото знадобиться:', all_pages, 'сторінок.')
+
 
 
 # task 10
@@ -79,3 +155,13 @@ c) 2789 : 5     f) 19224 : 9
 равку під час цієї подорожі, кожного разу заправляючи пов-
 ний бак?
 """
+
+# Відстань між містами, км
+distance = 1600
+# Скільки літрів бензину знадобиться для всієї подорожі
+total_liter = (1600 / 100) * 9
+# Скількі разів знадобиться заправлять повний бак, "-1" так як родина могла виїхати з повним баком
+total_times_fill = total_liter // 48 + (1 if total_liter % 48 > 0 else 0) - 1
+# Вивід результатів
+print('Для подорожі із Харкова в Будапешт знадобиться:', total_liter, 'літра бензину.') 
+print('Щонайменше разів родині необхідно заїхати на заправку під час цієї подорожі, кожного разу заправляючи повний бак:', total_times_fill) 
