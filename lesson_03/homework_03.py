@@ -1,8 +1,15 @@
-alice_in_wonderland = '"Would you tell me, please, which way I ought to go from here?"\n"That depends a good deal on where you want to get to," said the Cat.\n"I don't much care where ——" said Alice.\n"Then it doesn't matter which way you go," said the Cat.\n"—— so long as I get somewhere," Alice added as an explanation.\n"Oh, you're sure to do that," said the Cat, "if you only walk long enough."'
-# task 01 == Розділіть змінну alice_in_wonderland так, щоб вона займала декілька фізичних лінії
-# task 02 == Знайдіть та екрануйте всі символи одинарної дужки у тексті
-# task 03 == Виведіть змінну alice_in_wonderland на друк
+# alice_in_wonderland = '"Would you tell me, please, which way I ought to go from here?"\n"That depends a good deal on where you want to get to," said the Cat.\n"I don't much care where ——" said Alice.\n"Then it doesn't matter which way you go," said the Cat.\n"—— so long as I get somewhere," Alice added as an explanation.\n"Oh, you're sure to do that," said the Cat, "if you only walk long enough."'
+# # task 01 == Розділіть змінну alice_in_wonderland так, щоб вона займала декілька фізичних лінії
+# # task 02 == Знайдіть та екрануйте всі символи одинарної дужки у тексті
+# # task 03 == Виведіть змінну alice_in_wonderland на друк
 
+alice_in_wonderland = f'"Would you tell me, please, which way I ought to go from here?"'\
+    f'"That depends a good deal on where you want to get to," said the Cat.'\
+    f'"I don\'t much care where ——" said Alice.'\
+    f'"Then it doesn\'t matter which way you go," said the Cat.'\
+    f'"—— so long as I get somewhere," Alice added as an explanation.'\
+    f'"Oh, you\'re sure to do that," said the Cat, "if you only walk long enough."'
+print(alice_in_wonderland)
 
 """
     # Задачі 04 -10:
@@ -17,6 +24,11 @@ alice_in_wonderland = '"Would you tell me, please, which way I ought to go from 
 ське моря разом?
 """
 
+black_see_area = 436_402
+azov_see_area = 37_800
+
+print(f'The Black Sea and Azov Sea together occupy an area of {black_see_area + azov_see_area} square kilometers.')
+
 
 # task 05
 """
@@ -26,6 +38,13 @@ alice_in_wonderland = '"Would you tell me, please, which way I ought to go from 
 Знайдіть кількість товарів, що розміщені на кожному складі.
 """
 
+warehouse_1 = 375_291 - 222_950
+warehouse_3 = 375_291 - 250_449
+warehouse_2 = 375_291 - warehouse_1 - warehouse_3
+
+print (f'На першому складі розміщено {warehouse_1} товарів.'\
+   f'На другому складі розміщено {warehouse_2} товарів.'\
+   f'На третьому складі розміщено {warehouse_3} товарів.')
 
 # task 06
 """
@@ -35,6 +54,11 @@ alice_in_wonderland = '"Would you tell me, please, which way I ought to go from 
 вартість комп’ютера.
 """
 
+monthly_payment = 1179
+payment_time = 18
+
+price = monthly_payment * payment_time
+print (f'Computer price is {price}')
 
 # task 07
 """
@@ -44,6 +68,12 @@ b) 9907 : 9     e) 7128 : 5
 c) 2789 : 5     f) 19224 : 9
 """
 
+numbers = [8019, 9907, 2789, 7248, 7128, 19224]
+divisors = [8, 9, 5, 6, 5, 9]
+
+for i in range(len(numbers)):
+    print(numbers[i] % divisors[i], end=' ')
+print()
 
 # task 08
 """
@@ -58,6 +88,19 @@ c) 2789 : 5     f) 19224 : 9
 Вода            3           21 грн
 """
 
+big_pizza_price = 274
+big_pizza_amount = 4
+medium_pizza_price = 218
+medium_pizza_amount = 2
+juice_price = 35
+juice_amount = 4
+cake_price = 350
+watter_price = 21
+watter_amount = 3
+
+total_price = big_pizza_price*big_pizza_amount + medium_pizza_price*medium_pizza_amount + juice_price*juice_amount + cake_price + watter_price*watter_amount
+
+print (f'Tooal price is {total_price}')
 
 # task 09
 """
@@ -66,6 +109,13 @@ c) 2789 : 5     f) 19224 : 9
 розміщено щонайбільше 8 фото. Скільки сторінок знадобиться
 Ігорю, щоб вклеїти всі фото?
 """
+
+page_capacity = 8
+photos_amount = 232
+
+pages_required = photos_amount/page_capacity
+
+print (f'Igor will need {pages_required:.0f} full pages.')
 
 
 # task 10
@@ -79,3 +129,13 @@ c) 2789 : 5     f) 19224 : 9
 равку під час цієї подорожі, кожного разу заправляючи пов-
 ний бак?
 """
+
+treep_distance = 1600
+fuel_consumption_per_100 = 9
+tank_capacity = 48
+
+fuel_per_treep = (treep_distance/100) * fuel_consumption_per_100
+min_fuel_refill = fuel_per_treep/tank_capacity
+
+print (f'The trip will require {fuel_per_treep} liters of fuel.'
+    f'Minimum {min_fuel_refill} fuel refill per treep needed.')
