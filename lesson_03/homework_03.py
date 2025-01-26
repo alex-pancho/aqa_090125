@@ -36,10 +36,10 @@ print(alice_in_wonderland_01)
 моря становить 37 800 км2. Яку площу займають Чорне та Азов-
 ське моря разом?
 """
-Black_sea = 436402
-Azov_sea = 37000
-Total_area = Black_sea + Azov_sea
-print("Площа, яку займає Чорне та Азовське моря разом сягає", Total_area,"km2")
+black_sea = 436402
+azov_sea = 37000
+total_area = black_sea + azov_sea
+print("Площа, яку займає Чорне та Азовське моря разом сягає", total_area,"km2")
 
 # task 05
 """
@@ -49,17 +49,17 @@ print("Площа, яку займає Чорне та Азовське моря
 Знайдіть кількість товарів, що розміщені на кожному складі.
 """
 #Объявляем переменные по нашим данным.
-All_storage = 375291
-Second_and_First_storage = 250449
-Second_and_Third_storage = 222950
+all_storage = 375291
+second_and_first_storage = 250449
+second_and_third_storage = 222950
 #Считаем переменные по нашим данным.
-Second_storage = Second_and_First_storage + Second_and_Third_storage - All_storage
-Third_storage = Second_and_Third_storage - Second_storage
-First_storage = Second_and_First_storage - Second_storage
+second_storage = second_and_first_storage + second_and_third_storage - all_storage
+third_storage = second_and_third_storage - second_storage
+first_storage = second_and_first_storage - second_storage
 #Выводим переменные по нашим данным.  
-print("Кількість товарів на першому складі -",First_storage,"од.")
-print("Кількість товарів на другому складі -",Second_storage,"од.")
-print("Кількість товарів на третьому складі -",Third_storage,"од.")
+print("Кількість товарів на першому складі -",first_storage,"од.")
+print("Кількість товарів на другому складі -",second_storage,"од.")
+print("Кількість товарів на третьому складі -",third_storage,"од.")
 
 # task 06
 """
@@ -69,10 +69,10 @@ print("Кількість товарів на третьому складі -",T
 вартість комп’ютера.
 """
 # Вводим переменную
-Monthly_payment = 1179
-Months = 12 * 1.5
-Final_price_of_PC = Monthly_payment * Months
-print("Кінцева вартість комп'ютера Михайла -",int(Final_price_of_PC),"грн")
+monthly_payment = 1179
+months = 12 * 1.5
+final_price_of_PC = monthly_payment * months
+print("Кінцева вартість комп'ютера Михайла -",int(final_price_of_PC),"грн")
 
 
 # task 07
@@ -105,13 +105,13 @@ print(f"a) {result_a}\nb) {result_b}\nc) {result_c}\nd) {result_d}\ne) {result_e
 Вода            3           21 грн
 """
 #Объявляем переменные и вычисляем их значения.
-Big_pizza = 274 * 4
-Middle_pizza = 218 * 2
-Juice = 35 * 4
-Cake = 350
-Water = 21 * 3
+big_pizza = 274 * 4
+middle_pizza = 218 * 2
+juice = 35 * 4
+cake = 350
+water = 21 * 3
 #Суммируем конечный результат каждой переменной и выводим результат.
-print("Загальна сума за замовлення -", Big_pizza+Middle_pizza+Juice+Cake+Water)
+print("Загальна сума за замовлення -", big_pizza+middle_pizza+juice+cake+water)
 
 # task 09
 """
@@ -121,11 +121,11 @@ print("Загальна сума за замовлення -", Big_pizza+Middle_
 Ігорю, щоб вклеїти всі фото?
 """
 #Объявляем переменную
-All_photos = 232
-One_page = 8
-Total_photos = All_photos / One_page
+all_photos = 232
+one_page = 8
+total_photos = all_photos / one_page
 #Выводим конечный результат
-print(int(Total_photos), "сторінок знадобиться Ігорю, щоб вклеїти всі фото")
+print(int(total_photos), "сторінок знадобиться Ігорю, щоб вклеїти всі фото")
 
 # task 10
 """
@@ -139,11 +139,11 @@ print(int(Total_photos), "сторінок знадобиться Ігорю, щ
 ний бак?
 """
 #Объявляем перемененные
-All_distance = 1600
-Fuel_consuption = 100/9
-Tank_volume = 48
+all_distance = 1600
+fuel_consuption = 100/9
+tank_volume = 48
 #Выводим результаты, в зависимости от задания.
-print(int(All_distance/Fuel_consuption),"літра знадобиться для всієї подорожі")
-print(int(All_distance/(Tank_volume *Fuel_consuption))-1,"повних бака знадобиться для всієї подорожі, при умові, що виїхали в подорож з повним баком")
+print(int(all_distance/fuel_consuption),"літра знадобиться для всієї подорожі")
+print(int(all_distance/(tank_volume *fuel_consuption))-1,"повних бака знадобиться для всієї подорожі, при умові, що виїхали в подорож з повним баком")
 
 
