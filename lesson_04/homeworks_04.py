@@ -158,4 +158,5 @@ print(adwentures_of_tom_sawer[4])
 worlds_in_last_sentence = len(adwentures_of_tom_sawer[4].split())
 print(f"Кількість слів в останньому реченні {worlds_in_last_sentence})")
 
+#done
 
