@@ -65,6 +65,7 @@ count_VWX = adwentures_of_tom_sawer.count("V")+adwentures_of_tom_sawer.count("W"
 count_YZ = adwentures_of_tom_sawer.count("Y")+adwentures_of_tom_sawer.count("Z")
 all_upper = count_ABC+count_DEF+count_GHI+count_JKL+count_MNO+count_PQR+count_STU+count_VWX+count_YZ
 print(f"Відповідь: {all_upper} слів у тексті починається з Великої літери.")
+print("______________________________________________________________________________________")
 
 # task 06
 """ Виведіть позицію, на якій слово Tom зустрічається вдруге
