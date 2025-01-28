@@ -21,23 +21,18 @@ people_records = [
 # 1 - Add your new record at the beginning of the given list
 my_tuple = ('Viktoria', 'Lesyk', 25, 'Goddes', 'Asgard')
 people_records.insert (0, my_tuple)
-# print(people_records)
+print(people_records)
 
 # 2 - In modified list swap elements with indexes 1 and 5 (1<->5). Print result
 
 people_records[1], people_records[5] = people_records[5], people_records[1]
-# print(people_records)
+print(people_records)
 
 # 3 - check that all people in modified list with records indexes 6, 10, 13
 # have age >=30. Print condition check result
 
-people_records_to_check_age = people_records[6]
-print(people_records_to_check_age)
+people_records_to_check_age = [6, 10, 13]
+is_age_over_30 = all(people_records[i][2] >= 30 for i in people_records_to_check_age)
 
+print(f'Does all people records with indexes', people_records_to_check_age, 'have age >=30 -', is_age_over_30)
 
-
-
-# if big_list_len != big_list_to_set_len:
-#     print("Duplicates found")
-# else:
-#     print("No duplicates found")

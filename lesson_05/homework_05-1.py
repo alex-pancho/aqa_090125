@@ -70,4 +70,4 @@ for val in car_data_filtered_sorted:
 
 filtered_cars = dict(zip(dict_keys, dict_val))
 
-print(list(filtered_cars)[0:5])            
+print(list(filtered_cars)[0:5])
