@@ -129,7 +129,7 @@ print(my_set)
 set1 = {1, 2, 3, 4}
 set2 = {3, 4, 5, 6}
 set3 = {4, 3, 2, 1}
-
+print("*" * 88)
 logical_union = set1.union(set2)
 # logical_union = set1 | set2
 print(logical_union)
