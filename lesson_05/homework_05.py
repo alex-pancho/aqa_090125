@@ -93,9 +93,15 @@ print("task 10\n"
         "Обробіть список кортежів person_list, що містять ім'я та вік людей,"
         "так, щоб отримати словник, де ключі - вікові діапазони (10-19, 20-29 тощо),"
         "а значення - списки імен людей, які потрапляють в кожен діапазон.")
-person_list_sorted = sorted(person_list, key=lambda x: x[1])
-age_ranges = ['10-19', '20-29', '30-39', '40-49']
-age_ranges_for_persons = map(lambda x: age_ranges[(x[1] // 10) - 1], person_list_sorted)
-age_dict = dict(zip(age_ranges_for_persons, map(lambda x: (x[0],), person_list_sorted)))
-print(f"Відповідь: {age_dict}")
+age_ranges = {'10-19': [], '20-29': [], '30-39': [], '40-49': []}
+for name, age in person_list:
+    if age >= 10 and age <= 19:
+        age_ranges['10-19'].append(name)
+    elif age >= 20 and age <= 29:
+        age_ranges['20-29'].append(name)
+    elif age >= 30 and age <= 39:
+        age_ranges['30-39'].append(name)
+    elif age >= 40 and age <= 49:
+        age_ranges['40-49'].append(name)
+print(f"Відповідь: {age_ranges}")
 print("______________________________________________________________________________________")
