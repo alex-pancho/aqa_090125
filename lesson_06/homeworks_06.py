@@ -5,8 +5,10 @@
 Якщо так, надрукуйте повідомлення про те, що гравець щойно заробив 5 балів.
 """
 
-alien_color = ()
+alien_color = 'green'
 
+if alien_color == 'green':
+    print("You got 5 points")
 
 # task 2
 """  Скопіюйте пеопередню відповідь, змініть і доповніть її умовою else.
@@ -14,6 +16,13 @@ alien_color = ()
 Якщо колір прибульця не зелений, надрукуйте, що гравець щойно заробив 10 балів.
 Зробіть так, щоб виводилася умова else.
 """
+
+alien_color = 'yellow'
+
+if alien_color == 'green':
+    print("You got 5 points")
+else:
+    print("You got 10 points")
 
 # task 3
 # task 4
@@ -25,11 +34,35 @@ alien_color = ()
 + напишіть цикл for що перебере і обробить всі значення списку alien_color
 """
 
+alien_color = ['green', 'yellow', 'red']
+
+for color in alien_color: 
+    if color == 'green':
+        print("You got 5 points")
+    elif  color == 'red':   
+        print("You got 15 points")
+    else:
+        print("You got 10 points")
+
+
 # task 5
 """  Начинки для піци (pizza_topping): напишіть цикл, який пропонує користувачеві ввести ряд начинок
 для піци, доки він не введе значення 'quit'. Коли вони введуть кожну начинку,
 надрукуйте повідомлення про те, що ви додасте цю начинку до їхньої піци.
 """
+
+pizza_topping =  ''
+all_pizza_toppings = []
+
+while pizza_topping != 'quit':
+    pizza_topping = input("Enter pizza topping you would like to add. If nothing else enter 'quit':")
+    if pizza_topping == 'quit':
+        break
+    else:
+        print(f'Topping', pizza_topping, 'will be added to your pizza')
+        all_pizza_toppings.append(pizza_topping)
+
+print(f'All toppings for your pizza:', all_pizza_toppings)
 
 # task 6
 """  Напишіть програму, яка знаходить суму всіх цифр натурального числа, яке вводить користувач.
@@ -39,6 +72,12 @@ alien_color = ()
 Сума цифр числа 12345: 15
 """
 
+number_input = input('Enter your number: ')
+number_to_calculate = list(str(int(number_input)))
+sum_of_numbers = sum(int(i) for i in number_to_calculate)
+
+print(f'Sum of', number_input, 'numbers =', sum_of_numbers)
+
 # task 7
 """  Потрібно написати програму, яка просить користувача ввести числа, доки він не введе 0.
 Програма повинна підрахувати суму всіх введених чисел, окрім 0, і вивести її на екран.
@@ -46,6 +85,17 @@ alien_color = ()
 Після введеня 0 показує результат сумування.
 Розв'язати з використанням циклу while та break
 """
+
+entered_numbers = []
+
+while True:
+    user_input = int(input("Введіть число (або 0 для завершення): "))
+    if user_input == 0:
+        break
+    entered_numbers.append(user_input)
+
+total = sum(entered_numbers)
+print(f"Сума чисел:", total)
 
 # task 8
 """  З використанням циклу for реалізуйте гру "Вгадай число".
@@ -60,7 +110,15 @@ guesses = 0
 max_guesses = 5
 print("Вгадайте число від 1 до 20 за 5 спроб!")
 
-
+for i in range(max_guesses):
+    guess_number = int(input("Your gues: "))
+    if guess_number == secret_number:
+        print ('Won')
+        break
+    elif guess_number > secret_number:
+        print ('Wrong. Try something smaller')
+    else:   
+        print ('Wrong. Try something bigger')  
 
 
 # task 9
