@@ -57,7 +57,7 @@ all_pizza_toppings = []
 while pizza_topping != 'quit':
     pizza_topping = input("Enter pizza topping you would like to add. If nothing else enter 'quit':")
     if pizza_topping == 'quit':
-        break
+        pass
     else:
         print(f'Topping', pizza_topping, 'will be added to your pizza')
         all_pizza_toppings.append(pizza_topping)
@@ -73,7 +73,7 @@ print(f'All toppings for your pizza:', all_pizza_toppings)
 """
 
 number_input = input('Enter your number: ')
-number_to_calculate = list(str(int(number_input)))
+number_to_calculate = list(number_input)
 sum_of_numbers = sum(int(i) for i in number_to_calculate)
 
 print(f'Sum of', number_input, 'numbers =', sum_of_numbers)
