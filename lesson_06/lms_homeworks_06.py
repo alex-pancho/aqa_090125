@@ -31,6 +31,7 @@ lst1 = ['1', '2', 3, True, 'False', 5, '6', 7, 8, 'Python', 9, 0, 'Lorem Ipsum']
 lst2 = [str_value for str_value in lst1 if type(str_value) is str] 
 print("Values from \'lst1\' with type string for \'lst2\' will be :", lst2)
 
+# LMS 6_4
 # Є ліст з числами, порахуйте сумму усіх ПАРНИХ чисел в цьому лісті
 
 list_numeric = [ -1, -2, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,]
