@@ -75,6 +75,13 @@ for topping_name in pizza_topping:
 Введіть натуральне число: 12345
 Сума цифр числа 12345: 15
 """
+number = input("Введіть натуральне число: ")
+sum_digits = 0
+
+for digit in number:
+    sum_digits += int(digit)
+
+print(f"Сума цифр числа {number}: {sum_digits}")
 
 # task 7
 """  Потрібно написати програму, яка просить користувача ввести числа, доки він не введе 0.
