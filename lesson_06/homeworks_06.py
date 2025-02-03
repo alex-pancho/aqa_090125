@@ -18,10 +18,6 @@ if alien_color in colour_green:
 Якщо колір прибульця не зелений, надрукуйте, що гравець щойно заробив 10 балів.
 Зробіть так, щоб виводилася умова else.
 """
-alien_color = "red"
-colour_green = "green"
-colour_red = "red"
-colour_yellow = "yellow"
 
 if alien_color in colour_green:
     print('Ви тільки що заробили 5 балів')
@@ -37,15 +33,12 @@ else:
 Якщо прибулець червоний, надрукуйте повідомлення про те, що гравець заробив 15 очок
 + напишіть цикл for що перебере і обробить всі значення списку alien_color
 """
-alien_color = ['green', 'red', 'yellow']
-colour_green = "green"
-colour_red = "red"
-colour_yellow = "yellow"
+alien_colors = ['green', 'red', 'yellow']
 
-for color in alien_color:
-    if color == colour_green:
+for color in alien_colors:
+    if color == 'green':
         print('Ви тільки що заробили 5 балів')
-    elif color == colour_red:
+    elif color == 'red':
         print("Ви щойно заробили 15 балів")
     else:
         print("Ви щойно заробили 10 балів")
