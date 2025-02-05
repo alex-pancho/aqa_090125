@@ -115,6 +115,7 @@ print(list_2)
 
 # task 10
 # Є ліст з числами, порахуйте сумму усіх ПАРНИХ чисел в цьому лісті
+
 def sum_with_numbers(lst):
     sum = 0
     for number in lst:
