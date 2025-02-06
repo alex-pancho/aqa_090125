@@ -40,12 +40,12 @@ print(f'Sum of numbers is:', sum(53, 57))
 """  Написати функцію, яка розрахує середнє арифметичне списку чисел.
 """
 
-def get_average(num):
+def get_average(nums:list):
     """Calculate avarage of the list of numbers."""
     sum_num = 0
-    for t in num:
+    for t in nums:
         sum_num = sum_num + t           
-    avg = sum_num / len(num)
+    avg = sum_num / len(nums)
     return avg
 
 print("The average is", get_average([18, 2, 65, 25, 3, 34, 8, 83, 74, 5]))
@@ -77,8 +77,7 @@ print(longest_word(word_list))
 у перший рядок, якщо другий рядок є підрядком першого рядка, та -1, якщо другий рядок
 не є підрядком першого рядка."""
 def find_substring(str1, str2):
-    x = str1.find(str2) 
-    return x
+    return str1.find(str2) 
 
 str1 = "Hello, world!"
 str2 = "world"
@@ -101,7 +100,8 @@ def albbum_capacity_needed (page_capacity, photos_amount):
     pages_required = photos_amount/page_capacity
     return pages_required
 
-print (f'Igor will need {albbum_capacity_needed(page_capacity = 8, photos_amount = 232)} pages of the album.')
+pages_needed = albbum_capacity_needed(page_capacity = 8, photos_amount = 232)
+print (f'Igor will need {pages_needed} pages of the album.')
 
 # task 8
 """
@@ -137,7 +137,8 @@ def fuel_per_treep(treep_distance, fuel_consumption_per_100):
 
 def min_fuel_refill(treep_distance, fuel_consumption_per_100, tank_capacity):
     """Calculate how many fuel refuil are needed for the trip based on distance, capacity and consumption."""
-    min_fuel_refill = ((treep_distance/100) * fuel_consumption_per_100)/tank_capacity
+    fuel_per_trip_required = fuel_per_treep(treep_distance, fuel_consumption_per_100)
+    min_fuel_refill = fuel_per_trip_required /tank_capacity
     return min_fuel_refill
 
 print (f'The trip will require {fuel_per_treep(1600, 9)} liters of fuel. '
