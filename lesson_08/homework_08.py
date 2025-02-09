@@ -16,3 +16,4 @@ for i in array:
         print(sum([int(x) for x in i.split(",")]))
     except ValueError:
         print("Не можу це зробити!")
+ 
