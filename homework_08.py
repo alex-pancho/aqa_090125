@@ -5,13 +5,18 @@
 # Використовуйте блок try\except, щоб уникнути інших символів, окрім чисел у списку.
 # Для цього прикладу правильний вивід буде - 10, 60, “Не можу це зробити”
 
-def sum_of_numbers(string_list=None):
-    if string_list is None or not string_list: 
-        return "Список порожній"    
-
+def sum_of_numbers(string_list=[]):
+    if not string_list: 
+        return "Список порожній"     
     results = []
     try: 
         for item in string_list:
+            if not isinstance(item, str):
+                results.append("Не можу це зробити! Not a string")
+                continue
+            if item == "":
+                results.append("Не можу це зробити! Empty string")
+                continue
             try:
                 numbers = map(int, item.split(","))
                 results.append(sum(numbers)) 
@@ -19,11 +24,11 @@ def sum_of_numbers(string_list=None):
                 results.append("Не можу це зробити! ValueError")
             except AttributeError:
                 results.append("Не можу це зробити! AttributeError")
-            except:
-                results.append("Не можу це зробити! Unknown Error:")
+            except Exception as e:
+                results.append(f"Не можу це зробити! Unknown Error: {str(e)}")
         return results  
     except TypeError:
-        print("Не можу це зробити! TypeError]")
+        print("Не можу це зробити! TypeError")
 
 print(sum_of_numbers(["1,2,3,4", "1,2,3,4,50", 4+5, "qwerty1,2,3"]))
 print(sum_of_numbers((21)))
