@@ -7,7 +7,9 @@
 
 def sum_of_numbers(string_list=[]):
     if not string_list: 
-        return "Список порожній"     
+        return "Список порожній"  
+    if not isinstance(string_list, list):
+        return "Not a list"      
     results = []
     try: 
         for item in string_list:
