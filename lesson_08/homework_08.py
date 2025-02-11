@@ -50,23 +50,51 @@ sum_numbers_in_list("21")  # ValueError
 def sum_numbers_in_list(string_list: list):
     """Повертає список сум чисел зі списку строк,
     які складаються з чисел, розділених комою."""
+    try:
+        if not isinstance(string_list, list):
+            raise ValueError("Очікується список рядків.")
+        
+        if not string_list:
+            raise ValueError("Список не може бути порожнім.")
 
-    result = []
-    for i in string_list:
-        try:
-            result.append(sum([int(x) for x in i.split(",")]))
-        except ValueError as e:
-            result.append("Не можу це зробити!")
+        result = []
+        for i in string_list:
+            try:
+                result.append(sum([int(x) for x in i.split(",")]))
+            except ValueError:
+                result.append("Не можу це зробити!")
+            except AttributeError:
+                result.append("Не можу це зробити! AttributeError")
+        
+        return result
 
-    return result
+    except ValueError as e:
+        return f"Помилка: {e}"
+
+    except Exception as e:
+        return f"Невідома помилка: {e}"
 
 
 if __name__ == "__main__":
-    output = sum_numbers_in_list(["1,2,3", "4,0,6"])
+    output = sum_numbers_in_list(["1,2,3", "4,0,6"]) # [6, 10]
     print(output)
 
-    output = sum_numbers_in_list(["1,2,3", "4/0,6", "asas7,8,9"])
+    output = sum_numbers_in_list(["1,2,3", "4/0,6", "asas7,8,9"]) # [6, "Не можу це зробити!", "Не можу це зробити!"]
     print(output)
+
+    output = sum_numbers_in_list(["1,2,3", "asas7,8,9", "4,0,6"]) # [6, "Не можу це зробити!", 10]
+    print(output)
+
+    output = sum_numbers_in_list(["1,2,3,4", 7]) # [10, "Не можу це зробити! AttributeError"]
+    print(output)
+    
+    output = sum_numbers_in_list([]) # ValueError
+    print(output)
+    
+    output = sum_numbers_in_list("21") # ValueError
+    print(output)
+    
+
     """
     sum_numbers_in_list(["1,2,3", "4,0,6"])  # [6, 10]
     sum_numbers_in_list(["1,2,3", "asas7,8,9", "4,0,6"])  # [6, "Не можу це зробити!", 10]
