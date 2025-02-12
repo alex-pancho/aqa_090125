@@ -135,13 +135,13 @@ for fruit in fruits:
         continue
     print(fruit, gap * 3)
 
-    # task 10
-    """  Задано список чисел numbers, потрібно знайти список квадратів
-    парних чисел зі списку. Спробуйте використати if та цикл for в один рядок.
-    """
-    numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    result = ["Відповідь вставте сюди"]
-    print(result)  # [4, 16, 36, 64, 100]
+# task 10
+"""  Задано список чисел numbers, потрібно знайти список квадратів
+парних чисел зі списку. Спробуйте використати if та цикл for в один рядок.
+"""
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+result = ["Відповідь вставте сюди"]
+print(result)  # [4, 16, 36, 64, 100]
 
-    result = [number ** 2 for number in numbers if number % 2 == 0]
-    print(result)
+result = [number ** 2 for number in numbers if number % 2 == 0]
+print(result)
