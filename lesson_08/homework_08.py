@@ -65,8 +65,8 @@ def sum_numbers_in_list(some_list: list):
 
 
 if __name__ == "__main__":
-    output = sum_numbers_in_list("21")
-    print(output)
+   #  output = sum_numbers_in_list("21")
+   #  print(output)
 
     # output = sum_numbers_in_list(["1,2,3,4", "1,2,3,4,50"])
     # print(output)
@@ -74,8 +74,8 @@ if __name__ == "__main__":
     # output = sum_numbers_in_list(["1,2,3", "4/0,6", "asas7,8,9"])
     # print(output)
 
-    # output = sum_numbers_in_list(["1,2,3", 7])
-    # print(output)
+    output = sum_numbers_in_list(["1,2,3", 7])
+    print(output)
 
     # output = sum_numbers_in_list(["1,2,3,4", "1,2,3,4,50", sum, min(1, 2)])
     # print(output)
