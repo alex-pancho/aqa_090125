@@ -47,26 +47,50 @@ sum_numbers_in_list("21")  # ValueError
 """
 
 
-def sum_numbers_in_list(string_list: list):
-    """Повертає список сум чисел зі списку строк,
-    які складаються з чисел, розділених комою."""
-
-    result = []
-    for i in string_list:
+def sum_numbers_in_list(some_list: list):
+    """Counts sum of numbers in each string"""
+    if not isinstance(some_list, list):
+        raise ValueError("Не можу це зробити!")
+    elif some_list == []:
+        raise ValueError("Не можу це зробити!")
+    sum_of_numb = []
+    for el in some_list:
         try:
-            result.append(sum([int(x) for x in i.split(",")]))
-        except ValueError as e:
-            result.append("Не можу це зробити!")
-
-    return result
+            sum_of_numb.append(sum([int(num) for num in el.split(',')]))
+        except ValueError as value_err:
+            sum_of_numb.append(f'Не можу це зробити! :{value_err}')
+        except AttributeError as at_err:
+            sum_of_numb.append(f'Не можу це зробити! :{at_err}')     
+    return sum_of_numb
 
 
 if __name__ == "__main__":
-    output = sum_numbers_in_list(["1,2,3", "4,0,6"])
+    output = sum_numbers_in_list("21")
     print(output)
 
-    output = sum_numbers_in_list(["1,2,3", "4/0,6", "asas7,8,9"])
-    print(output)
+    # output = sum_numbers_in_list(["1,2,3,4", "1,2,3,4,50"])
+    # print(output)
+
+    # output = sum_numbers_in_list(["1,2,3", "4/0,6", "asas7,8,9"])
+    # print(output)
+
+    # output = sum_numbers_in_list(["1,2,3", 7])
+    # print(output)
+
+    # output = sum_numbers_in_list(["1,2,3,4", "1,2,3,4,50", sum, min(1, 2)])
+    # print(output)
+
+    # output = sum_numbers_in_list([
+    #                 "1,2,3,4",
+    #                 "1,2,3,4,50",
+    #                 "qwerty1,2,3",
+    #                 {"country": "Ukraine", "continent": "Europe", "size": 123},
+    #             ])
+    # print(output)
+
+    # output = sum_numbers_in_list([])
+    # print(output)
+
     """
     sum_numbers_in_list(["1,2,3", "4,0,6"])  # [6, 10]
     sum_numbers_in_list(["1,2,3", "asas7,8,9", "4,0,6"])  # [6, "Не можу це зробити!", 10]
