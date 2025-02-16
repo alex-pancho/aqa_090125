@@ -47,30 +47,82 @@ sum_numbers_in_list("21")  # ValueError
 """
 
 
-def sum_numbers_in_list(string_list: list):
-    """Повертає список сум чисел зі списку строк,
-    які складаються з чисел, розділених комою."""
+# def sum_numbers_in_list():
+#     """Повертає список сум чисел зі списку строк,
+#     які складаються з чисел, розділених комою."""
 
-    result = []
-    for i in string_list:
-        try:
-            result.append(sum([int(x) for x in i.split(",")]))
-        except ValueError as e:
-            result.append("Не можу це зробити!")
+#     result = []
+#     for i in string_list:
+#         try:
+#             result.append(sum([int(x) for x in i.split(",")]))
+#         except ValueError as e:
+#             result.append("Не можу це зробити!")
 
-    return result
+#     return result
 
 
+# if __name__ == "__main__":
+#     output = sum_numbers_in_list(["1,2,3", "4,0,6"])
+#     print(output)
+
+#     output = sum_numbers_in_list(["1,2,3", "4/0,6", "asas7,8,9"])
+#     print(output)
+#     """
+#     sum_numbers_in_list(["1,2,3", "4,0,6"])  # [6, 10]
+#     sum_numbers_in_list(["1,2,3", "asas7,8,9", "4,0,6"])  # [6, "Не можу це зробити!", 10]
+#     sum_numbers_in_list(["1,2,3,4", 7])  # [10, "Не можу це зробити! AttributeError"]
+#     sum_numbers_in_list([])  # ValueError
+#     sum_numbers_in_list("21")  # ValueError
+#     """
+
+def sum_numbers_in_list(strings) -> list:
+    """
+    Функція приймає список рядків, у яких числа розділені комами,
+    і повертає список їхніх сум або повідомлення про помилки.
+
+    Валідація:
+    - Якщо передано не список, викликає ValueError.
+    - Якщо список порожній, викликає ValueError.
+    - Якщо елемент списку не є рядком, повертає "Не можу це зробити! AttributeError".
+    - Якщо в рядку є нечислові символи, повертає "Не можу це зробити".
+    
+    :param strings: Список рядків із числами, розділеними комами.
+    :return: Список сум чисел або повідомлення про помилки.
+    """
+    if not isinstance(strings, list):
+        raise ValueError("A list of strings is expected!")
+    if not strings:
+        raise ValueError("The list cannot be empty! Please enter a value.")
+
+    results = []
+    
+    for s in strings:
+        if not isinstance(s, str):
+            results.append("Не можу це зробити! AttributeError")
+        else:
+            try:
+                numbers = list(map(int, s.split(','))) 
+                results.append(sum(numbers))
+            except ValueError:
+                results.append("Не можу це зробити!")
+
+    return results 
+
+# **Перевірка коду**
 if __name__ == "__main__":
-    output = sum_numbers_in_list(["1,2,3", "4,0,6"])
-    print(output)
+   try:
+      print(sum_numbers_in_list(["1,2,3", "4,0,6"]))  
 
-    output = sum_numbers_in_list(["1,2,3", "4/0,6", "asas7,8,9"])
-    print(output)
-    """
-    sum_numbers_in_list(["1,2,3", "4,0,6"])  # [6, 10]
-    sum_numbers_in_list(["1,2,3", "asas7,8,9", "4,0,6"])  # [6, "Не можу це зробити!", 10]
-    sum_numbers_in_list(["1,2,3,4", 7])  # [10, "Не можу це зробити! AttributeError"]
-    sum_numbers_in_list([])  # ValueError
-    sum_numbers_in_list("21")  # ValueError
-    """
+      print(sum_numbers_in_list(["1,2,3", "asas7,8,9", "4,0,6"]))  
+
+      print(sum_numbers_in_list(["1,2,3,4", 7]))  
+
+      print(sum_numbers_in_list([]))
+
+   except ValueError as e:
+      print(f"{e}")
+
+   try:
+      print(sum_numbers_in_list("21"))
+   except ValueError as e:
+      print(f"{e}")
