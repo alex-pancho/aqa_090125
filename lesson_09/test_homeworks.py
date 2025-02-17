@@ -13,11 +13,16 @@ class TestListOfStrings(unittest.TestCase):
 
     def test_02_invalid_input(self):
         """Тест на некоректні вхідні дані"""
-        self.assertEqual(list_of_strings('string'), "Введіть список!")
-        self.assertEqual(list_of_strings({1:3, 1:4}), "Введіть список!")
-        self.assertEqual(list_of_strings({1, 2, 3}), "Введіть список!")
-        self.assertEqual(list_of_strings(1), "Введіть список!")
-        self.assertEqual(list_of_strings(True), "Введіть список!")
+        with self.assertRaises(ValueError):
+            list_of_strings('string')
+        with self.assertRaises(ValueError):
+            list_of_strings({1:3, 1:4})                  
+        with self.assertRaises(ValueError):
+            list_of_strings({1, 2, 3})
+        with self.assertRaises(ValueError):
+            list_of_strings(1)
+        with self.assertRaises(ValueError):
+            list_of_strings(True)
 
     def test_03_empty_list(self):
         """Туст на порожній список"""
@@ -26,7 +31,8 @@ class TestListOfStrings(unittest.TestCase):
     
     def test_04_without_strings(self):
         """Тест на список без строк"""
-        self.assertEqual(list_of_strings([1, 2, 3, 4, 5]), "В списку немає строкових значень!")
+        with self.assertRaises(ValueError):
+            list_of_strings([1, 2, 3, 4, 5])
 
     def  test_05_raises(self):
         """Тест на помилку кількості аргументів у функції"""
@@ -43,20 +49,28 @@ class TestReversedDict(unittest.TestCase):
     
     def test_07_invalid_input(self):
         """Тест на некоректні тип вхідних даних"""
-        self.assertEqual(reversed_dict('string'), "Введіть словник!")
-        self.assertEqual(reversed_dict([1, 2, 3]), "Введіть словник!")
-        self.assertEqual(reversed_dict(1), "Введіть словник!")
-        self.assertEqual(reversed_dict(True), "Введіть словник!")
+        with self.assertRaises(ValueError):
+            reversed_dict('string')
+        with self.assertRaises(ValueError):
+            reversed_dict([1, 2, 3])
+        with self.assertRaises(ValueError):
+            reversed_dict(1)
+        with self.assertRaises(ValueError):
+            reversed_dict(True)
 
     def test_08_empty_dict(self):
         """Тест на порожній словник"""
-        self.assertEqual(reversed_dict({}), "Словник пустий!") 
+        with self.assertRaises(ValueError):
+            reversed_dict({})
 
     def test_09_invalid_type_key(self):
         """Тест на некоректний тип ключа"""
-        self.assertEqual(reversed_dict({1: 'a', 2: 'b', 3: [1, 2, 3]}), "Некоректний тип ключа")
-        self.assertEqual(reversed_dict({1: 'a', 2: 'b', 3: {1, 2, 3}}), "Некоректний тип ключа")
-        self.assertEqual(reversed_dict({1: 'a', 2: 'b', 3: {1:3}}), "Некоректний тип ключа")
+        with self.assertRaises(TypeError):
+            reversed_dict({1: 'a', 2: 'b', 3: [1, 2, 3]})
+        with self.assertRaises(TypeError):
+            reversed_dict({1: 'a', 2: 'b', 3: {1, 2, 3}})
+        with self.assertRaises(TypeError):
+            reversed_dict({1: 'a', 2: 'b', 3: {1:3}})
 
 
 class TestAverageOfList(unittest.TestCase):
@@ -124,16 +138,17 @@ class TestCalculateSumFromFile(unittest.TestCase):
     @patch('builtins.open', side_effect=FileNotFoundError)
     def test_20_file_not_found(self, mock_file):
         """Тест на відсутність файлу"""
-        self.assertEqual(calculate_sum_from_file('file.txt'), "File not found")
+        with self.assertRaises(FileNotFoundError):
+            calculate_sum_from_file('file.txt')
 
     @patch('builtins.open', side_effect=ValueError)
     def test_21_invalid_data(self, mock_file):
         """Тест на некоректні дані у файлі"""
-        self.assertEqual(calculate_sum_from_file('file.txt'), "Invalid data in the file")
+        with self.assertRaises(ValueError):
+            calculate_sum_from_file('file.txt')
 
         
  
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
-    

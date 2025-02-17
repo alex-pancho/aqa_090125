@@ -7,12 +7,12 @@ def list_of_strings(lst: list) -> list:
         raise ValueError("Список пустий!")
     
     if not isinstance(lst, list):
-        return "Введіть список!"
+        raise ValueError("Введіть список!")
     
     lst_str = [elem for elem in lst if isinstance(elem, str)]
 
     if not lst_str:
-        return "В списку немає строкових значень!"
+        raise ValueError("В списку немає строкових значень!")
     
     return lst_str
     
@@ -23,13 +23,14 @@ def reversed_dict(base_dict: dict) -> dict:
     """Функція приймає словник і повертає його копію, де ключі і значення поміняні місцями"""
 
     if not isinstance(base_dict, dict):
-        return "Введіть словник!"
+        raise ValueError("Введіть словник!")
     if base_dict == {}:
-        return "Словник пустий!"
+        raise ValueError("Словник пустий!")
+    
     try:
         rev_dict = {value: key for key, value in base_dict.items()}
-    except TypeError:
-        return "Некоректний тип ключа"
+    except TypeError as e:
+        raise TypeError("Некоректний тип ключа")
     
     return rev_dict
 
@@ -64,10 +65,10 @@ def calculate_sum_from_file(filename):
         for number in word:
             if number.isnumeric():
                 numbers.append(int(number))
-    except FileNotFoundError:
-        return ("File not found")
-    except ValueError:
-        return("Invalid data in the file")
+    except FileNotFoundError as e:
+        raise FileNotFoundError("File not found")
+    except ValueError as e:
+        raise ValueError("Invalid data in the file")
          
 
     numbers_sum = sum(numbers)
