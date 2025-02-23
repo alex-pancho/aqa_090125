@@ -21,7 +21,7 @@ class TestLogEvent(unittest.TestCase):
 
     def test_log_success(self):
         """Verifying successful login logging"""
-        username = "test_user"
+        username = "John Snow"
         status = "success"
         log_event(username, status)
 
@@ -33,7 +33,7 @@ class TestLogEvent(unittest.TestCase):
 
     def test_log_expired(self):
         """Verify logging an outdated password"""
-        username = "test_user"
+        username = "Clara Osvin Osvald"
         status = "expired"
         log_event(username, status)
 
@@ -45,7 +45,7 @@ class TestLogEvent(unittest.TestCase):
 
     def test_log_failed(self):
         """Verify failed login logging"""
-        username = "test_user"
+        username = "Doctor Who"
         status = "failed"
         log_event(username, status)
 
