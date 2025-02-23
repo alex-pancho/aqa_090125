@@ -57,7 +57,7 @@ class TestLogEvent(unittest.TestCase):
 
     def test_log_invalid_status(self):
         """Verify a login with an invalid status (should be handled as an error)"""
-        username = "test_user"
+        username = "Luke Skywalker"
         status = "invalid"
         log_event(username, status)
 
