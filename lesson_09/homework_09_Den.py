@@ -58,7 +58,8 @@ def sum_positive_numbers(numbers: list):
     total = sum(number for number in numbers if number > 0)
 
     return total
-print(sum_positive_numbers([1, -2, 3, 4, -5]))
+if __name__...
+    print(sum_positive_numbers([1, -2, 3, 4, -5]))
 print(sum_positive_numbers([-1, -2, -3]))
 print(sum_positive_numbers([10, 20, 30]))
 print(sum_positive_numbers([]))
