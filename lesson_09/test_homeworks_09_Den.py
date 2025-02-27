@@ -44,4 +44,4 @@ class TestHomework09(unittest.TestCase):
             sum_positive_numbers({'a': 1})
 
 if __name__ == "__main__":
-    unittest.main
+    unittest.main()
