@@ -47,15 +47,26 @@ sum_numbers_in_list("21")  # ValueError
 """
 
 
-def sum_numbers_in_list(string_list: list):
-    """Повертає список сум чисел зі списку строк,
-    які складаються з чисел, розділених комою."""
+def sum_numbers_in_list(string_list):
+    # Проверка на список
+    if not isinstance(string_list, list):
+        raise ValueError("ДЕ список? Не бачу!")
+    # Проверка на пустой список
+    if not string_list:
+        raise ValueError("Ну хтож передаэ пустий список")
 
     result = []
-    for i in string_list:
+
+    # Проверяем, если это не строка
+    for item in string_list:
+        if not isinstance(item, str):
+            result.append("Не можу це зробити! AttributeError")
+            continue
+
         try:
-            result.append(sum([int(x) for x in i.split(",")]))
-        except ValueError as e:
+            # Суммируем числа после разделения запятыми
+            result.append(sum(int(x) for x in item.split(",")))
+        except ValueError:  # Якщо в рядку є некоректні символи
             result.append("Не можу це зробити!")
 
     return result
@@ -67,6 +78,20 @@ if __name__ == "__main__":
 
     output = sum_numbers_in_list(["1,2,3", "4/0,6", "asas7,8,9"])
     print(output)
+
+    output = sum_numbers_in_list(["1,2,3,4", 7])
+    print(output)
+
+    try:
+        print(sum_numbers_in_list([]))
+    except ValueError as e:
+        print(e)  # "Список не може бути порожнім!"
+
+    try:
+        print(sum_numbers_in_list("21"))
+    except ValueError as e:
+        print(e)  # "Очікувався список!"
+
     """
     sum_numbers_in_list(["1,2,3", "4,0,6"])  # [6, 10]
     sum_numbers_in_list(["1,2,3", "asas7,8,9", "4,0,6"])  # [6, "Не можу це зробити!", 10]
