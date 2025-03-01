@@ -1,7 +1,7 @@
-# main.py
 import os
 import json
 from logger import setup_logger
+from pathlib import Path
 
 # Ініціалізація логера
 logger = setup_logger()
@@ -20,13 +20,14 @@ def validate_json(file_path):
     return True
 
 def main():
-    folder_path = r'C:/Users/HP/Рабочий стол/aqa_090125/lesson_13/homework_13/work_with_json'
+    # Визначаємо шлях до папки work_with_json відносно місця, де знаходиться скрипт
+    folder_path = Path(__file__).parent / 'work_with_json'
 
     # Перевірка всіх файлів у вказаній папці
     for filename in os.listdir(folder_path):
-        file_path = os.path.join(folder_path, filename)
+        file_path = folder_path / filename
 
-        if os.path.isfile(file_path) and file_path.endswith('.json'):  # Перевіряємо лише JSON файли
+        if file_path.is_file() and file_path.suffix == '.json':  # Перевіряємо лише JSON файли
             if not validate_json(file_path):
                 logger.error(f"Файл {filename} не є валідним JSON.")  # Записуємо в лог, якщо файл не валідний
 
