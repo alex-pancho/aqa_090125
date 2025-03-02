@@ -8,10 +8,6 @@ import logging
 # Візміть два файли з теки ideas_for_test/work_with_csv порівняйте на наявність дублікатів і приберіть їх. 
 # Результат запишіть у файл result_<your_second_name>.csv
 
-csv_1 = Path("/Users/kate/Documents/Курсы/aqa_090125/lesson_13/homework_13/csv_files/random-michaels.csv")
-csv_2 = Path("/Users/kate/Documents/Курсы/aqa_090125/lesson_13/homework_13/csv_files/random.csv")
-output_path = Path("/Users/kate/Documents/Курсы/aqa_090125/lesson_13/homework_13/result_kate.csv")
-
 def remove_duplicates(file_1: Path, file_2: Path, output_path: Path) -> None:
     """
     Remove duplicates from two csv files and write the result to a new csv file.
@@ -34,18 +30,15 @@ def remove_duplicates(file_1: Path, file_2: Path, output_path: Path) -> None:
         writer = csv.writer(file)
         writer.writerows(set_3)
 
-# remove_duplicates(csv_1, csv_2, output_path) 
+csv_1 = Path("/Users/kate/Documents/Курсы/aqa_090125/lesson_13/homework_13/csv_files/random-michaels.csv")
+csv_2 = Path("/Users/kate/Documents/Курсы/aqa_090125/lesson_13/homework_13/csv_files/random.csv")
+output_path = Path("/Users/kate/Documents/Курсы/aqa_090125/lesson_13/homework_13/result_kate.csv")
+remove_duplicates(csv_1, csv_2, output_path) 
 
 
 # Завдання 2:
 # Провалідуйте, чи усі файли у папці ideas_for_test/work_with_json є валідними json. 
 # Результат для невалідного файлу виведіть через логер на рівні еррор у файл json__<your_second_name>.log
-
-json_1 = Path("/Users/kate/Documents/Курсы/aqa_090125/lesson_13/homework_13/json_files/localizations_en.json")
-json_2 = Path("/Users/kate/Documents/Курсы/aqa_090125/lesson_13/homework_13/json_files/localizations_ru.json")
-json_3 = Path("/Users/kate/Documents/Курсы/aqa_090125/lesson_13/homework_13/json_files/login.json")
-json_4 = Path("/Users/kate/Documents/Курсы/aqa_090125/lesson_13/homework_13/json_files/swagger.json")
-log_path = Path("/Users/kate/Documents/Курсы/aqa_090125/lesson_13/homework_13/json_kate.log")
 
 def validate_json_files(*files: Path, log_path: Path) -> None:
     """
@@ -68,14 +61,17 @@ def validate_json_files(*files: Path, log_path: Path) -> None:
         except json.JSONDecodeError:
             logger.error(f"File {file.name} is not a valid json file") 
 
-# validate_json_files(json_1, json_2, json_3, json_4, log_path=log_path)
+json_1 = Path("/Users/kate/Documents/Курсы/aqa_090125/lesson_13/homework_13/json_files/localizations_en.json")
+json_2 = Path("/Users/kate/Documents/Курсы/aqa_090125/lesson_13/homework_13/json_files/localizations_ru.json")
+json_3 = Path("/Users/kate/Documents/Курсы/aqa_090125/lesson_13/homework_13/json_files/login.json")
+json_4 = Path("/Users/kate/Documents/Курсы/aqa_090125/lesson_13/homework_13/json_files/swagger.json")
+log_path = Path("/Users/kate/Documents/Курсы/aqa_090125/lesson_13/homework_13/json_kate.log")
+validate_json_files(json_1, json_2, json_3, json_4, log_path=log_path)
 
 
 # Завдання 3:
 # Для файла ideas_for_test/work_with_xml/groups.xml створіть функцію пошуку по group/number і 
-# повернення значення timingExbytes/incoming результат виведіть у консоль через логер на рівні інфо
-
-xml_path = Path("/Users/kate/Documents/Курсы/aqa_090125/lesson_13/homework_13/xml_files/groups.xml")    
+# повернення значення timingExbytes/incoming результат виведіть у консоль через логер на рівні інфо   
 
 def find_group_by_number(xml_path: Path) -> None:
     """
@@ -99,6 +95,7 @@ def find_group_by_number(xml_path: Path) -> None:
             incoming = timing_exbytes.find('incoming').text
             logger.info(f"Group number: {number}, incoming: {incoming}")
 
-# find_group_by_number(xml_path)
+xml_path = Path("/Users/kate/Documents/Курсы/aqa_090125/lesson_13/homework_13/xml_files/groups.xml") 
+find_group_by_number(xml_path)
 
 
