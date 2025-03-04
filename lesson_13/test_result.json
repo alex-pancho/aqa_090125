@@ -1,0 +1,9 @@
+{
+    "name": "John",
+    "age": 30,
+    "city": "New York",
+    "pass": 95,
+    "skip": 5,
+    "failed": 0,
+    "is_failed": true
+}
