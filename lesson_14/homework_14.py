@@ -32,7 +32,7 @@ else:
 """
 def check_permissions(func):
     """
-    Decorator for checking user permissions while calling instance methods for.
+    Decorator for checking user permissions while calling instance methods (property getters or setters).
     'admin' - grant all privileges
     'blocked' - restrict access to all attributes
     'moderator' and 'user' - grant read-only access to attributes
@@ -90,7 +90,7 @@ class SiteUser:
     @log_count.setter
     @check_permissions
     def log_count(self, value):
-        if isinstance(value, int):
+        if isinstance(value, int) and value >= 0:
             self.__log_count = value
             print('Log count saved')
 
@@ -102,7 +102,7 @@ class SiteUser:
     @email.setter
     @check_permissions
     def email(self, value):
-        if isinstance(value, str) and value:
+        if isinstance(value, str):
             self.__email = value
             print('Email saved')
 
@@ -114,7 +114,7 @@ class SiteUser:
     @name.setter
     @check_permissions
     def name(self, new_name):
-        if isinstance(new_name, str) and new_name:
+        if isinstance(new_name, str):
             self.__name = new_name
             print('Name saved')
 
