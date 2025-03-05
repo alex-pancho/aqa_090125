@@ -59,7 +59,7 @@ class SiteUser():
         self.logcount += 1 
 
     def __str__(self):
-        return f"SiteUser: {self.name}, mailbox: {self.__email}, access level: {self.__level_access}, logcount: {self.logcount}"
+        return f"SiteUser: {self.name}, email: {self.__email}, access level: {self.__level_access}, logcount: {self.logcount}"
     
     def __eq__(self, other):
         if isinstance(other, SiteUser):
