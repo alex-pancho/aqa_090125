@@ -30,3 +30,57 @@ else:
 
 Написати на це все тести
 """
+
+class SiteUser():
+
+    def __init__(self, name, email, access_level, logcount = 0):
+        self.name = name
+        self.email = email
+        self.access_level = access_level
+        self.__logcount = logcount
+
+
+    @property
+    def logcount(self):
+        return self.__logcount
+
+    @logcount.setter
+    def logcount(self, quantity):
+        if not isinstance(quantity, int):
+            raise ValueError("logcount must be int")
+        if quantity < 0:
+            raise ValueError("logcount must be positive")
+        if quantity < self.__logcount:
+            raise ValueError("logcount must be greater than previous")
+        self.__logcount += quantity
+
+
+    def __str__(self):
+        return f"SiteUser: {self.name}, mailbox: {self.email}, access level: {self.access_level}"
+    
+
+    def __eq__(self, other:object):
+        if not isinstance(other, SiteUser):
+            raise ValueError("other must be SiteUser")
+        
+        if self.access_level == other.access_level:
+            return True
+        else:
+            return False
+
+
+
+
+
+
+if __name__ == "__main__":
+
+    user1 = SiteUser("John Doe", "john.doe@example.com", "user")
+    user2 = SiteUser("Jane Smith", "jane.smith@example.com", "admin")
+    print(user1)
+    user1.logcount = 1
+    print(user1.logcount)
+    if user1 == user2:
+        print("Користувачі однакові")
+    else:
+        print("Користувачі різні")
