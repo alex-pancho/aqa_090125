@@ -13,3 +13,31 @@
     кут_б обчислюється автоматично.
     Для встановлення значень атрибутів використовуйте метод __setattr__.
 """
+
+class Rhombus:
+
+    def __init__(self, side_a, angle_a):
+        self.side_a = side_a
+        self.angle_a = angle_a
+
+    def __setattr__(self, name, value):
+        if name == 'side_a' and value <= 0:
+            raise ValueError('Side_a must be greater than 0')
+        if name == 'angle_a' and not (0 < value < 180):
+            raise ValueError('Angle_a must be between 0 and 180')
+        super().__setattr__(name, value)
+
+    @property
+    def angle_b(self):
+        return 180 - self.angle_a
+
+    def __str__(self):
+        return f"Rhombus: side_a = {self.side_a}, angle_a = {self.angle_a}, angle_b = {self.angle_b}"
+
+
+if __name__ == "__main__":
+
+    rhombus = Rhombus(5, 60)
+    print(rhombus)
+    # rhombus.angle_a = 190
+    # rhombus.side_a = -5
