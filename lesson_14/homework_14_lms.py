@@ -15,13 +15,15 @@ class Student():
     def update_average_score(self, value):
         self.avg_score = value
 
-rose_student = Student("Rose", "Tyler", 19, 4.8)
+if __name__ == "__main__":     
+    
+    rose_student = Student("Rose", "Tyler", 19, 4.8)
 
-print("First Name:", rose_student.first_name)
-print("Last Name:", rose_student.last_name)
-print("Age:", rose_student.age)
-print("Average sccore before update:", rose_student.avg_score)
+    print("First Name:", rose_student.first_name)
+    print("Last Name:", rose_student.last_name)
+    print("Age:", rose_student.age)
+    print("Average sccore before update:", rose_student.avg_score)
 
-rose_student.update_average_score(4.3)
+    rose_student.update_average_score(4.3)
 
-print("Average sccore after update:", rose_student.avg_score)
+    print("Average sccore after update:", rose_student.avg_score)
