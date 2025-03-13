@@ -65,20 +65,22 @@ class SiteUser():
         if isinstance(other, SiteUser):
             return self.__level_access == other.__level_access
         return False
-         
-user1 = SiteUser("John Doe", "john.doe@example.com", "user")
-user2 = SiteUser("Jane Smith", "jane.smith@example.com", "admin")
 
-print(user1)
-# Виведе: SiteUser: John Doe, mailbox: john.doe@example.com, access level: user
 
-# Порівняння користувачів
-if user1 == user2:
-    print("Користувачі однакові")
-else:
-    print("Користувачі різні")
+if __name__ == "__main__":         
+    user1 = SiteUser("John Doe", "john.doe@example.com", "user")
+    user2 = SiteUser("Jane Smith", "jane.smith@example.com", "admin")
 
-user2.track_logcount()
-print(user2)
-user2.track_logcount()
-print(user2)
+    print(user1)
+    # Виведе: SiteUser: John Doe, mailbox: john.doe@example.com, access level: user
+
+    # Порівняння користувачів
+    if user1 == user2:
+        print("Користувачі однакові")
+    else:
+        print("Користувачі різні")
+
+    user2.track_logcount()
+    print(user2)
+    user2.track_logcount()
+    print(user2)
