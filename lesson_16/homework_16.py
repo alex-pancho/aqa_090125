@@ -38,3 +38,105 @@
 6. Назначте ревьювером викладача
 7. **Посилання на PR вставте у форму відповіді для ДЗ в навчальній системі**
 """
+import math
+from abc import ABC, abstractmethod
+
+
+class Employee:
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+
+
+class Manager(Employee):
+    def __init__(self, name, salary, department):
+        Employee.__init__(self, name, salary)
+        self.department = department
+
+
+class Developer(Employee):
+    def __init__(self, name, salary, programming_language):
+        Employee.__init__(self, name, salary)
+        self.programming_language = programming_language
+
+
+class TeamLead(Manager, Developer):
+    def __init__(self, name, salary, department, programming_language, team_size):
+        Manager.__init__(self, name, salary, department)
+        Developer.__init__(self, name, salary, programming_language)
+        self.team_size = team_size
+
+
+class Figure(ABC):
+    @abstractmethod
+    def get_area(self):
+        pass
+
+    @abstractmethod
+    def get_perimeter(self):
+        pass
+
+
+class Square(Figure):
+    def __init__(self, width, height):
+        self.__width = width
+        self.__height = height
+
+    def get_area(self):
+        return self.__width * self.__height
+
+    def get_perimeter(self):
+        return 2 * (self.__width + self.__height)
+
+
+class Circle(Figure):
+    def __init__(self, radius):
+        self.__radius = radius
+
+    def get_area(self):
+        return math.pi * self.__radius ** 2
+
+    def get_perimeter(self):
+        return 2 * math.pi * self.__radius
+
+
+class Triangle(Figure):
+    def __init__(self, a, b, c):
+        self.__a = a
+        self.__b = b
+        self.__c = c
+
+    def get_area(self):
+        s = (self.__a + self.__b + self.__c) / 2
+        return math.sqrt(s * (s - self.__a) * (s - self.__b) * (s - self.__c))
+
+    def get_perimeter(self):
+        return self.__a + self.__b + self.__c
+
+
+def get_figure_area_and_perimeter(name: str, *args):
+    figure = {"Square": Square, "Circle": Circle, "Triangle": Triangle}
+    obj = figure[name](*args)
+    return f"{obj.__class__.__name__}: Площа = {obj.get_area():.2f}, Периметр = {obj.get_perimeter():.2f}"
+
+
+if __name__ == '__main__':
+    lead = TeamLead("Dima", 100000, "Development", "Python", 5)
+    print(lead.department)
+    print(lead.name)
+    print(lead.salary)
+    print(lead.programming_language)
+    print(lead.team_size)
+
+    figures = [
+        Circle(5),
+        Square(4, 6),
+        Triangle(3, 4, 5)
+    ]
+
+    for figure in figures:
+        print(f"{figure.__class__.__name__}: Площа = {figure.get_area():.2f}, Периметр = {figure.get_perimeter():.2f}")
+
+    print(get_figure_area_and_perimeter("Square", 2, 2))
+    print(get_figure_area_and_perimeter("Circle", 5))
+    print(get_figure_area_and_perimeter("Triangle", 3, 4, 5))
