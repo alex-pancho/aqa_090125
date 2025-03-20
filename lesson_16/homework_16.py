@@ -118,7 +118,7 @@ for Figure in Figures:
     print(f"Perimeter: {Figure.perimeter()}")
     print("*" * 30)
 
- """
+"""
 # Як робити домашне завдання у Git
 1. **ОБОВ’ЯЗКОВО с**творіть нову гілку, яка буде використовуватись для змін, за 
     допомогою команди `git checkout -b homework##`
