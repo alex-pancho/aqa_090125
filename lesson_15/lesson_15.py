@@ -46,32 +46,6 @@ class Car:
     def __add__(self, other_point):
         self.model = self.model + " " + str(other_point)
         return self.model
-    
-
-
-
-my_car_1 = Car("Toyota", "Camry")
-Car.add_attr("new_attr")
-my_car_1.new_attr = "New attr"
-print(my_car_1.new_attr)
-print("my_car_1", my_car_1.count)
-my_car_2 = Car("Mersedes", "C200")
-print(my_car_2.new_attr)
-print("my_car_2", my_car_2.count)
-print("my_car_1", my_car_1.count)
-mc3 = Car("Porshe", "PanAmera")
-print("my_car_1", my_car_1.count)
-del mc3
-mc = Car.loop(5)
-print(mc)
-print("my_car_1", my_car_1.count)
-print(my_car_2)
-print(len(my_car_2))
-new_var = my_car_2 + "dfldjlfsj"
-print(my_car_2)
-print(new_var)
-setattr(Car, "totaly_new", 0)
-print(my_car_2.totaly_new)
 
 class Person:
     def __setattr__(self, name, value):
@@ -79,13 +53,34 @@ class Person:
         super().__setattr__(name, value)
 
 
-# Створюємо екземпляр класу Person
-person = Person()
-
-# Встановлюємо атрибути
-person.name = 'Alice'
-person.age = 30
-
-# Перевіряємо встановлені значення
-print(f'Name: {person.name}')  # Виведе: Name: Alice
-print(f'Age: {person.age}')    # Виведе: Age: 30
+if __name__ == "__main__":
+    my_car_1 = Car("Toyota", "Camry")
+    Car.add_attr("new_attr")
+    my_car_1.new_attr = "New attr"
+    print(my_car_1.new_attr)
+    print("my_car_1", my_car_1.count)
+    my_car_2 = Car("Mersedes", "C200")
+    print(my_car_2.new_attr)
+    print("my_car_2", my_car_2.count)
+    print("my_car_1", my_car_1.count)
+    mc3 = Car("Porshe", "PanAmera")
+    print("my_car_1", my_car_1.count)
+    del mc3
+    mc = Car.loop(5)
+    print(mc)
+    print("my_car_1", my_car_1.count)
+    print(my_car_2)
+    print(len(my_car_2))
+    new_var = my_car_2 + "dfldjlfsj"
+    print(my_car_2)
+    print(new_var)
+    setattr(Car, "totaly_new", 0)
+    print(my_car_2.totaly_new)
+    # Створюємо екземпляр класу Person
+    person = Person()
+    # Встановлюємо атрибути
+    person.name = 'Alice'
+    person.age = 30
+    # Перевіряємо встановлені значення
+    print(f'Name: {person.name}')  # Виведе: Name: Alice
+    print(f'Age: {person.age}')    # Виведе: Age: 30
