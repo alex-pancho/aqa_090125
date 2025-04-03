@@ -1,6 +1,7 @@
 import unittest
 from abc import ABC, abstractmethod
 import math
+
 """
 Завдання 1
 
@@ -16,7 +17,7 @@ import math
 
 Напишіть тест, який перевіряє наявність атрібутів з `Manager` та `Developer` у класі `TeamLead`
 """
-"""
+
 class Employee:
     def __init__(self, name, salary):
         self.name = name
@@ -62,7 +63,7 @@ class TestTeamLeadAttributes(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main()
 
-"""
+
 """
 Завдання 2
 
@@ -109,25 +110,18 @@ class Circle(Figure):
     def perimeter(self):
         return 2 * math.pi * self.__radius
 
+if __name__ == "__main__":
+    shapes = [
+        Square(15),
+        Rectangle(5, 10),
+        Circle(7),
+    ]
 
-shapes = [
-    Square(15),
-    Rectangle(5, 10),
-    Circle(7),
-]
-
-for shape in shapes:
-    print(f"Figure: {shape.__class__.__name__}")
-    print(f"  Area: {shape.area():.2f}")
-    print(f"  Perimeter: {shape.perimeter():.2f}")
-    print()
-
-
-
-
-
-
-
+    for shape in shapes:
+        print(f"Figure: {shape.__class__.__name__}")
+        print(f"  Area: {shape.area():.2f}")
+        print(f"  Perimeter: {shape.perimeter():.2f}")
+        print()
 
 """
 ### Складність
