@@ -21,20 +21,96 @@
 та ініціалізуватись через конструктор. Створіть Декілька різних об’єктів фігур, та у циклі 
 порахуйте та виведіть в консоль площу та периметр кожної.
 
-### Складність
-
-Висока
-
-# Як робити домашне завдання у Git
-
-1. **ОБОВ’ЯЗКОВО с**творіть нову гілку, яка буде використовуватись для змін, за 
-    допомогою команди `git checkout -b homework##`
-2. **Виконайте ДЗ у окремому файлі homework_<#lesson>.py**
-3. Зробіть коміт з змінами, додавши опис виконаних змін
-4. Відправте свої зміни до вашого репозиторію 
-5. Створіть pull request у  власну гілку `main` на головний репозиторію 
-    [https://github.com](https://github.com/), натиснувши кнопку "New pull request" на
-    відповідному розділі репозиторію.
-6. Назначте ревьювером викладача
-7. **Посилання на PR вставте у форму відповіді для ДЗ в навчальній системі**
 """
+
+# Завдання 1
+class Employee:
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary    
+
+class Manager(Employee):
+    def __init__(self, name, salary, department):
+        Employee.__init__(self, name, salary)
+        self.department = department
+
+class Developer(Employee):
+    def __init__(self, name, salary, programming_language):
+        Employee.__init__(self, name, salary)
+        self.programming_language = programming_language
+
+class TeamLead(Manager, Developer):
+    def __init__(self, name, salary, department, programming_language, team_size):
+        Manager.__init__(self, name, salary, department)
+        Developer.__init__(self, name, salary, programming_language)
+        self.team_size = team_size
+
+
+
+# Завдання 2
+from abc import ABC, abstractmethod
+import math
+
+
+class Figure(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+    @abstractmethod
+    def perimeter(self):
+        pass
+
+
+class Square(Figure):
+    def __init__(self, a):
+        self.__a = a
+
+    def area(self):
+        return self.__a ** 2
+
+    def perimeter(self):
+        return self.__a * 4
+    
+
+class Triangle(Figure):
+    def __init__(self, a, b, c):
+        self.__a = a
+        self.__b = b
+        self.__c = c
+
+    def area(self):
+        p = (self.__a + self.__b + self.__c) / 2
+        return math.sqrt(p * (p - self.__a) * (p - self.__b) * (p - self.__c))
+
+    def perimeter(self):
+        return self.__a + self.__b + self.__c 
+    
+
+class Circle(Figure):
+    def __init__(self, r):
+        self.__r = r
+
+    def area(self):
+        return math.pi * self.__r ** 2
+
+    def perimeter(self):
+        return 2 * math.pi * self.__r
+    
+
+
+
+if __name__ == "__main__":
+    team_lead = TeamLead("John", 5000, "IT", "Python", 5)
+    print(team_lead.department)
+    print(team_lead.programming_language)
+    print(team_lead.team_size)
+
+    square = Square(5)
+    triangle = Triangle(3, 4, 5)
+    circle = Circle(10)
+
+    figures = [square, triangle, circle]
+
+    for figure in figures:
+        print(f"Area: {figure.area()}, Perimeter: {figure.perimeter()}")
