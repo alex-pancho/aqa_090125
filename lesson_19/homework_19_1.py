@@ -26,7 +26,3 @@ if __name__ == "__main__":
     params = {'sol': 1000, 'camera': 'fhaz', 'api_key': 'DEMO_KEY'}
     
     print(get_photos(url, params))
-
-    
-
-
