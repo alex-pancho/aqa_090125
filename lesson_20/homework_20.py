@@ -16,8 +16,8 @@
 import sqlite3
 
 
-def create_tables(cursor: sqlite3.Cursor):
-    """Create tables (products, categories) for the online store database."""
+def create_table_categories(cursor: sqlite3.Cursor):
+    """Create tables categories for the online store database."""
 
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS categories (
@@ -25,6 +25,12 @@ def create_tables(cursor: sqlite3.Cursor):
             name TEXT
         )
     ''')
+
+    cursor.connection.commit()
+
+
+def create_table_products(cursor: sqlite3.Cursor):
+    """Create tables products for the online store database."""
 
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS products (
@@ -37,25 +43,33 @@ def create_tables(cursor: sqlite3.Cursor):
         )
     ''')
 
-    conn.commit()
+    cursor.connection.commit()
 
 
-def insert_sample_data(cursor: sqlite3.Cursor, category: list, products: list):
+def insert_sample_data_categories(cursor: sqlite3.Cursor, category: list):
     """Insert sample data into categories and products tables.
     Args:
         category: tuple list of category to insert.
-        products: tuple list of products to insert.
     """
     
     cursor.executemany('''
         INSERT INTO categories (name) VALUES (?)
     ''', category)
 
+    cursor.connection.commit()
+
+
+def insert_sample_data_products(cursor: sqlite3.Cursor, products: list):
+    """Insert sample data into categories and products tables.
+    Args:
+        products: tuple list of products to insert.
+    """
+
     cursor.executemany('''
         INSERT INTO products (name, description, price, category_id) VALUES (?, ?, ?, ?)
     ''', products)
 
-    conn.commit()
+    cursor.connection.commit()
 
 
 def get_products_with_categories(cursor: sqlite3.Cursor):
@@ -77,20 +91,22 @@ if __name__ == "__main__":
     with sqlite3.connect('store.db') as conn:
         cursor = conn.cursor()
 
-        categories = [
-            ('Electronics',),
-            ('Clothing',),
-            ('Books',)
-        ]
-        products = [
-            ('Smartphone', 'Latest model smartphone', 699.99, 1),
-            ('Laptop', 'High-performance laptop', 1299.99, 1),
-            ('T-shirt', 'Comfortable cotton t-shirt', 19.99, 2),
-            ('Novel', 'Bestselling novel', 14.99, 3)
-        ]
+    categories = [
+        ('Electronics',),
+        ('Clothing',),
+        ('Books',)
+    ]
+    products = [
+        ('Smartphone', 'Latest model smartphone', 699.99, 1),
+        ('Laptop', 'High-performance laptop', 1299.99, 1),
+        ('T-shirt', 'Comfortable cotton t-shirt', 19.99, 2),
+        ('Novel', 'Bestselling novel', 14.99, 3)
+    ]
 
-        create_tables(cursor)
-        insert_sample_data(cursor, categories, products)
-        products_with_categories = get_products_with_categories(cursor)
-        for product in products_with_categories:
-            print(f"Product: {product[0]}, Description: {product[1]}, Price: {product[2]}, Category: {product[3]}")
+    create_table_categories(cursor)
+    create_table_products(cursor)
+    insert_sample_data_categories(cursor, categories)
+    insert_sample_data_products(cursor, products)
+    products_with_categories = get_products_with_categories(cursor)
+    for product in products_with_categories:
+        print(f"Product: {product[0]}, Description: {product[1]}, Price: {product[2]}, Category: {product[3]}")
