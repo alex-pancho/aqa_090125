@@ -1,6 +1,9 @@
 import pytest
 import requests
 
+from lesson_24.homework_24 import HttpCarsClient
+
+
 @pytest.fixture(scope="function")
 def get_regisered_user():
     email = "alex22222@gmail.com"
@@ -52,3 +55,10 @@ def prepare_config():
     print("Підготовка конфігурації...")
     yield
     print("Очищення конфігурації...")
+
+
+@pytest.fixture(scope="class")
+def auth_signin():
+    obj = HttpCarsClient()
+    obj.auth_signin()
+    yield obj
