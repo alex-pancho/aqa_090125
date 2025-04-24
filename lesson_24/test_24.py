@@ -98,3 +98,4 @@ def prepare_data(request):
 def test_example(prepare_data):
     print(prepare_data)
     assert prepare_data % 2 == 0
+    
