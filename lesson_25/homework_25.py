@@ -24,27 +24,28 @@ header_profile_drop_down_menu_fuel_expenses = '//header//nav[@aria-labelledby="u
 header_profile_drop_down_menu_instructions = '//header//nav[@aria-labelledby="userNavDropdown"]/a[text()="Instructions"]'
 header_profile_drop_down_menu_logout = '//header//nav[@aria-labelledby="userNavDropdown"]/button[text()="Logout"]'
 
-main_title_text = '//div/app-home//h1'
-main_paragraph_text = '//p[@class="hero-descriptor_descr lead"]/text()'
-sign_up_button = '//button[text()="Sign up"]'
+hero_section_title_text = '//div/app-home//h1'
+hero_section_paragraph_text = '//p[@class="hero-descriptor_descr lead"]/text()'
+hero_section_sign_up_button = '//button[text()="Sign up"]'
 hero_section_video_iframe = '//section[@class="section hero"]//iframe[@class="hero-video_frame"]'
 about_section = '//div[@id="aboutSection"]'
 
 contacts_section = '//div[@id="contactsSection"]'
 contacts_section_heading_text = '//div[@id="contactsSection"]//h2/text()'
-facebook_link = '//div[@class="contacts_socials socials"]//a[contains(@href, "facebook.com")]'
-telegram_link = '//div[@class="contacts_socials socials"]//a[contains(@href, "t.me")]'
-youtube_link = '//div[@class="contacts_socials socials"]//a[contains(@href, "youtube")]'
-instagram_link = '//div[@class="contacts_socials socials"]//a[contains(@href, "instagram")]'
-linkedin_link = '//div[@class="contacts_socials socials"]//a[contains(@href, "linkedin.com")]'
-support_email_link = '//div[@id="contactsSection"]//a[contains(@href, "mailto:developer@ithillel.ua")]'
-hillel_site_link = '//div[@id="contactsSection"]//a[contains(@href, "https://ithillel.ua")]'
+contacts_section_facebook_link = '//div[@class="contacts_socials socials"]//a[contains(@href, "facebook.com")]'
+contacts_section_telegram_link = '//div[@class="contacts_socials socials"]//a[contains(@href, "t.me")]'
+contacts_section_youtube_link = '//div[@class="contacts_socials socials"]//a[contains(@href, "youtube")]'
+contacts_section_instagram_link = '//div[@class="contacts_socials socials"]//a[contains(@href, "instagram")]'
+contacts_section_linkedin_link = '//div[@class="contacts_socials socials"]//a[contains(@href, "linkedin.com")]'
+contacts_section_support_email_link = '//div[@id="contactsSection"]//a[contains(@href, "mailto:developer@ithillel.ua")]'
+contacts_section_hillel_site_link = '//div[@id="contactsSection"]//a[contains(@href, "https://ithillel.ua")]'
 
 footer_section = '//footer'
 footer_logo = '//footer//a[@class="footer_logo"]'
+
 modal_close_button = '//div[@class="modal-header"]/button[@class="close"]' #can be used with any modal
 
-log_in_form = '//app-signin-modal'
+log_in_modal = '//app-signin-modal'
 log_in_modal_email_input = '//app-signin-modal//input[@id="signinEmail"]'
 log_in_modal_password_input = '//app-signin-modal//input[@id="signinPassword"]'
 log_in_modal_remember_me_checkbox = '//div[@class="modal-body"]//div[@class="form-check"]/input'
@@ -55,9 +56,9 @@ log_in_modal_login_button_disabled = '//app-signin-modal//button[@disabled and t
 log_in_modal_login_button_enabled = '//app-signin-modal//button[not(@disabled) and text()="Login"]'
 
 restore_access_modal = '//app-forgot-password-modal'
-restore_access_email_input = '//app-forgot-password-modal//input[@id="signinEmail"]'
-restore_access_send_button_disabled = '//app-forgot-password-modal//button[@disabled and text()="Send"]'
-restore_access_send_button_enabled = '//app-forgot-password-modal//button[not(@disabled) and text()="Send"]'
+restore_access_modal_email_input = '//app-forgot-password-modal//input[@id="signinEmail"]'
+restore_access_modal_send_button_disabled = '//app-forgot-password-modal//button[@disabled and text()="Send"]'
+restore_access_modal_send_button_enabled = '//app-forgot-password-modal//button[not(@disabled) and text()="Send"]'
 
 registration_modal = '//app-signup-modal'
 registration_modal_name_input = '//app-signup-modal//input[@id="signupName"]'
