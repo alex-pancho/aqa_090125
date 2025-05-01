@@ -5,16 +5,19 @@ from selenium.webdriver.common.by import By
 
 def send_text_into_frame(driver, frame_id, input_id, text):
     driver.switch_to.frame(driver.find_element(By.ID, frame_id))
-    input_field = driver.find_element(By.ID, input_id)
-    input_field.send_keys(text)
+
+    driver.find_element(By.ID, input_id).send_keys(text)
+    
     button = driver.find_element(By.TAG_NAME, "button")
     time.sleep(1)
     button.click()
     time.sleep(3)
+
     alert = driver.switch_to.alert
     assert alert.text == "Верифікація пройшла успішно!", f"Невірний текст алерта: {alert.text}"
     alert.accept()
     time.sleep(3)
+
     driver.switch_to.default_content()
 
 
