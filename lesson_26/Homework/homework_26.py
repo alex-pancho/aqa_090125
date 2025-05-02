@@ -3,14 +3,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# XPath локатори елементів
-FRAME_1_XPATH = "//iframe[@id='frame1']"
-FRAME_2_XPATH = "//iframe[@id='frame2']"
-INPUT_1_XPATH = "//input[@id='input1']"
-INPUT_2_XPATH = "//input[@id='input2']"
-VERIFY_BUTTON_XPATH = "//button[text()='Перевірити']"
-SUCCESS_ALERT_TEXT = "Верифікація пройшла успішно!"
-
 def switch_to_frame_by_xpath(driver, frame_xpath):
     """Перемикається на вказаний фрейм за його XPath."""
     print(f"Перехід до фрейму з XPath: {frame_xpath}")
@@ -45,7 +37,15 @@ def handle_verification_alert(driver):
     print("Діалогове вікно закрито.")
 
 if __name__ == "__main__":
-    """Основна функція для виконання сценарію."""
+
+    # XPath локатори елементів
+    FRAME_1_XPATH = "//iframe[@id='frame1']"
+    FRAME_2_XPATH = "//iframe[@id='frame2']"
+    INPUT_1_XPATH = "//input[@id='input1']"
+    INPUT_2_XPATH = "//input[@id='input2']"
+    VERIFY_BUTTON_XPATH = "//button[text()='Перевірити']"
+    SUCCESS_ALERT_TEXT = "Верифікація пройшла успішно!"
+
     driver = webdriver.Firefox()
     driver.get("http://localhost:8000/dz.html")
 
