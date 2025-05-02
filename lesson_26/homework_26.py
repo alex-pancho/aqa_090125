@@ -29,7 +29,7 @@ def verify_frame(driver, frame_id, input_id, secret_text):
             except:
                 time.sleep(0.5)
             else:
-                raise Exception(f"❌ Алерт не з'явився у {frame_id}")
+                raise Exception(f"Алерт не з'явився у {frame_id}")
 
         # Отримуємо alert і перевіряємо текст
         alert = driver.switch_to.alert
