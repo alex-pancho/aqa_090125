@@ -1,0 +1,42 @@
+2025-04-24 22:08:01,943 - INFO - User auth...
+2025-04-24 22:08:01,946 - INFO - Token: eyJhbGciOiJIUzI1NiIs...
+2025-04-24 22:08:01,946 - INFO - Testing /cars with params: sort_by=None, limit=None
+2025-04-24 22:08:01,955 - INFO - Response status code: 200
+2025-04-24 22:08:01,956 - INFO - 25 cars got
+2025-04-24 22:08:01,958 - INFO - Testing /cars with params: sort_by=brand, limit=None
+2025-04-24 22:08:01,960 - INFO - Response status code: 200
+2025-04-24 22:08:01,960 - INFO - 25 cars got
+2025-04-24 22:08:01,960 - INFO - Firs car sorted by 'brand': Acura
+2025-04-24 22:08:01,960 - INFO - Testing /cars with params: sort_by=year, limit=None
+2025-04-24 22:08:01,966 - INFO - Response status code: 200
+2025-04-24 22:08:01,966 - INFO - 25 cars got
+2025-04-24 22:08:01,974 - INFO - Firs car sorted by 'year': 2015
+2025-04-24 22:08:01,976 - INFO - Testing /cars with params: sort_by=price, limit=None
+2025-04-24 22:08:01,976 - INFO - Response status code: 200
+2025-04-24 22:08:01,976 - INFO - 25 cars got
+2025-04-24 22:08:01,976 - INFO - Firs car sorted by 'price': 28000
+2025-04-24 22:08:01,976 - INFO - Testing /cars with params: sort_by=engine_volume, limit=None
+2025-04-24 22:08:01,986 - INFO - Response status code: 200
+2025-04-24 22:08:01,988 - INFO - 25 cars got
+2025-04-24 22:08:01,988 - INFO - Firs car sorted by 'engine_volume': 0.0
+2025-04-24 22:08:01,990 - INFO - Testing /cars with params: sort_by=brand, limit=5
+2025-04-24 22:08:01,992 - INFO - Response status code: 200
+2025-04-24 22:08:01,994 - INFO - 5 cars got
+2025-04-24 22:08:01,994 - INFO - Firs car sorted by 'brand': Acura
+2025-04-24 22:08:01,994 - INFO - Testing /cars with params: sort_by=year, limit=3
+2025-04-24 22:08:01,996 - INFO - Response status code: 200
+2025-04-24 22:08:01,996 - INFO - 3 cars got
+2025-04-24 22:08:01,996 - INFO - Firs car sorted by 'year': 2015
+2025-04-24 22:08:02,000 - INFO - Testing /cars with params: sort_by=price, limit=7
+2025-04-24 22:08:02,005 - INFO - Response status code: 200
+2025-04-24 22:08:02,005 - INFO - 7 cars got
+2025-04-24 22:08:02,005 - INFO - Firs car sorted by 'price': 28000
+2025-04-24 22:08:02,008 - INFO - Testing /cars with params: sort_by=engine_volume, limit=2
+2025-04-24 22:08:02,011 - INFO - Response status code: 200
+2025-04-24 22:08:02,011 - INFO - 2 cars got
+2025-04-24 22:08:02,011 - INFO - Firs car sorted by 'engine_volume': 0.0
+2025-04-24 22:08:02,012 - INFO - Testing /cars with params: sort_by=invalid_sort_by, limit=None
+2025-04-24 22:08:02,017 - INFO - Response status code: 200
+2025-04-24 22:08:02,017 - INFO - 25 cars got
+2025-04-24 22:08:02,018 - INFO - Firs car sorted by 'brand': BMW
+2025-04-24 22:08:02,020 - INFO - Session closed
