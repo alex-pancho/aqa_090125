@@ -51,12 +51,22 @@ def sum_numbers_in_list(string_list: list):
     """Повертає список сум чисел зі списку строк,
     які складаються з чисел, розділених комою."""
 
+    if not isinstance(string_list, list):
+        raise ValueError ("Очікувався список")
+
+    if not string_list:
+        raise ValueError ("Список не може бути порожнім")
+
     result = []
     for i in string_list:
         try:
+            if not isinstance(i, str):
+                raise AttributeError
             result.append(sum([int(x) for x in i.split(",")]))
         except ValueError as e:
             result.append("Не можу це зробити!")
+        except AttributeError:
+            result.append("Не можу це зробити! AttributeError")
 
     return result
 
