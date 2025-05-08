@@ -86,40 +86,42 @@ def sum(a, b):
     res = 1 + a
     return result, res
 
-# a = 1
-# b = None
 
-# print(sum(a, b))
-# print(divide_and_sum(10, 0))
-# print(divide_and_sum(10, 2))     
-# print("key_proc list", key_proc([1]))   
-# print("key_proc", key_proc([1, 2]))
-# print("key_proc", key_proc([1, 2, 3])) 
-# print("key_proc", key_proc([]))
-# print("key_proc DICT", key_proc({"a": 1}))
-# print("key_proc", key_proc({"a": 1, "b": 2, "c": 3}))
-# print("key_proc", key_proc({"a": 1, "b": 2, "c": 3, "f": 4, "g": 5}))
-# print("key_proc", key_proc({}))
-# try:
-#     # Код, який може викликати помилку читання з бази данних
-#     pass
-# except InterruptedError:
-#     print("Помилка: данні не збереглися") 
-# finally:
-#     # наприклад збереження в файл
-#     print("Цей блок завжди виконується, незалежно від того, чи виникла помилка чи ні")
+if __name__ == "__main__":
+    a = 1
+    b = None
 
-# a = 1
-# b = None
-# print(sum(a, b))
-# print("Go forward")
-# print(sum(a, 1))
+    print(sum(a, b))
+    print(divide_and_sum(10, 0))
+    print(divide_and_sum(10, 2))     
+    print("key_proc list", key_proc([1]))   
+    print("key_proc", key_proc([1, 2]))
+    print("key_proc", key_proc([1, 2, 3])) 
+    print("key_proc", key_proc([]))
+    print("key_proc DICT", key_proc({"a": 1}))
+    print("key_proc", key_proc({"a": 1, "b": 2, "c": 3}))
+    print("key_proc", key_proc({"a": 1, "b": 2, "c": 3, "f": 4, "g": 5}))
+    print("key_proc", key_proc({}))
+    try:
+        # Код, який може викликати помилку читання з бази данних
+        pass
+    except InterruptedError:
+        print("Помилка: данні не збереглися") 
+    finally:
+        # наприклад збереження в файл
+        print("Цей блок завжди виконується, незалежно від того, чи виникла помилка чи ні")
 
-# # Приклад виклику функції
-# divide_numbers(10, 2)
-# divide_numbers(5, 0)
-# try:
-#     key_after_proc = key_proc_extend("data_store") # key_proc("data_store")
-# except ValueError as e:
-#     print("Fist print>", e)
-#     print("Ну ой.....")
+    a = 1
+    b = None
+    print(sum(a, b))
+    print("Go forward")
+    print(sum(a, 1))
+
+    # Приклад виклику функції
+    divide_numbers(10, 2)
+    divide_numbers(5, 0)
+    try:
+        key_after_proc = key_proc_extend("data_store") # key_proc("data_store")
+    except ValueError as e:
+        print("Fist print>", e)
+        print("Ну ой.....")
