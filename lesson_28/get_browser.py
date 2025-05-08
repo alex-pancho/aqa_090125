@@ -5,9 +5,10 @@ from selenium import webdriver
 
 def firefox(debug=False):
     options = FirefoxOptions()
-    options.add_argument("--headless")
-    driver = webdriver.Firefox() if debug else \
-        webdriver.Firefox(options=options)
+    #options.add_argument("--headless")
+    driver = webdriver.Firefox()
+    if not debug: 
+       options.headless = True
     driver.maximize_window()
     return driver
 

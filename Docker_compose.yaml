@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: test_user
+      POSTGRES_PASSWORD: test_password
+      POSTGRES_DB: test_db
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    depends_on:
+      - db
+    image: pytest_app
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgres://test_user:test_password@db:5432/test_db
+  
+  firefox:
+    image: selenium/standalone-firefox
+    container_name: firefox
+    ports:
+      - "4444:4444"
+    environment:
+      - SE_OPTS=-port 4444

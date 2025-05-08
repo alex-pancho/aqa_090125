@@ -8,7 +8,7 @@ URL = "https://guest:welcome2qauto@qauto.forstudy.space"
 
 @pytest.fixture(scope="module")
 def driver():
-    _driver = chrome(True)
+    _driver = firefox()
     _driver.maximize_window()
     _driver.get(URL)
     yield _driver
