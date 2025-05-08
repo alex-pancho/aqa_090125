@@ -1,5 +1,5 @@
 import pytest
-from pages.home_page import HomePage
+from lesson_28.pages.home_page import HomePage
 
 def test_homepage_menu(home_page):
     element = home_page.item("menu_home")
