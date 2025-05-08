@@ -5,7 +5,7 @@ from first_po_class import SignInPage
 LOGIN_URL = "https://semantic-ui.com/examples/login.html"
 
 def test_login():
-    driver = firefox(True)
+    driver = firefox()
     sign_in = SignInPage(driver, LOGIN_URL)
     assert sign_in.driver is not None
     user = "user@gmail.com"
