@@ -1,4 +1,5 @@
 from pages.elements import WebElement
+from selenium.webdriver.support.ui import WebDriverWait
 
 
 class BasePage:
@@ -6,6 +7,7 @@ class BasePage:
 
     def __init__(self, driver):
         self.driver = driver
+        self.wait = WebDriverWait(self.driver, 10)
 
     def item(self, name: str) -> WebElement:
         _xpath = self.locators.get(name) # self.__getattribute__(name)
