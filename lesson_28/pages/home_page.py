@@ -10,12 +10,16 @@ class HomePage(BasePage):
         menu_home='//a[text()="Home"]',
         sign_in_button='//button[.="Sign In"]',
         contacts_head='//h2',
-        sign_up_button='//button[.="Sign Up"]',
+        sign_up_button='//button[.="Sign up"]',
         username_by='//[@name="email"]',
         password_by='//*[@id="signinPassword"]',
         signin_by='//form//div[.="Login"]',
         guest_login='//button[@class="header-link -guest"]'
         )
+
+    def open_page(self, url):
+        self.driver.get(url)
+
 
     def login_valid_user(self, username, password):
         username_by = self.item("username_by")
@@ -25,3 +29,4 @@ class HomePage(BasePage):
         username_by.send_keys(username)
         password_by.send_keys(password)
         signin_by.click()
+
