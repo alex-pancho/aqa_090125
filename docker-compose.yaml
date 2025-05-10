@@ -9,6 +9,7 @@ services:
       POSTGRES_DB: test_db
     ports:
       - "5432:5432"
+    restart: on-failure
 
   app:
     build: .
@@ -19,11 +20,3 @@ services:
       - "8000:8000"
     environment:
       DATABASE_URL: postgres://test_user:test_password@db:5432/test_db
-  
-  firefox:
-    image: selenium/standalone-firefox
-    container_name: firefox
-    ports:
-      - "4444:4444"
-    environment:
-      - SE_OPTS=-port 4444
