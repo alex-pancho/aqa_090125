@@ -1,0 +1,6 @@
+DEBUG    app.operations:operations.py:15 Added operation: 4 + 6 = 10, id=1
+DEBUG    app.operations:operations.py:22 Retrieved from DB: id=1, 4 + 6 = 10
+DEBUG    app.operations:operations.py:15 Added operation: 1 + 2 = 3, id=2
+DEBUG    app.operations:operations.py:22 Retrieved from DB: id=2, 1 + 2 = 3
+DEBUG    app.operations:operations.py:32 Deleted record with id=2
+DEBUG    app.operations:operations.py:24 No record found for: 1 + 2
