@@ -1,5 +1,8 @@
 import pytest
 import requests
+import logging
+from requests.auth import HTTPBasicAuth
+from logger import logger
 
 @pytest.fixture(scope="function")
 def get_regisered_user():
@@ -52,3 +55,27 @@ def prepare_config():
     print("Підготовка конфігурації...")
     yield
     print("Очищення конфігурації...")
+
+# fixture for test cars IPI
+
+BASE_URL = 'http://127.0.0.1:8080'
+USERS = {"test_user": "test_pass"}
+
+logger()
+
+@pytest.fixture(scope='class')
+def api_session():
+    """Створює сесію з токеном доступу для API."""
+    logging.info("User auth...")
+    session = requests.Session()
+    auth = HTTPBasicAuth('test_user', 'test_pass')
+    response = session.post(f'{BASE_URL}/auth', auth=auth)
+    assert response.status_code == 200
+    token_data = response.json()
+    assert 'access_token' in token_data
+    access_token = token_data['access_token']
+    session.headers.update({'Authorization': f'Bearer {access_token}'})
+    logging.info(f"Token: {access_token[:20]}...")
+    yield session
+    session.close()
+    logging.info("Session closed")
