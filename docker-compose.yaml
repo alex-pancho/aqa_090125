@@ -10,6 +10,8 @@ services:
     ports:
       - "5432:5432"
     restart: on-failure
+    volumes:
+      - pgdata:/var/lib/postgresql/data
 
   app:
     build: .
@@ -20,3 +22,9 @@ services:
       - "8000:8000"
     environment:
       DATABASE_URL: postgres://test_user:test_password@db:5432/test_db
+    volumes:
+      - .:/app
+      - ./allure-results:/app/allure-results
+
+volumes:
+  pgdata:
