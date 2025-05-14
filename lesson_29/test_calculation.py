@@ -1,8 +1,8 @@
 import pytest
 import allure
 
-from lesson_29.db import calculate_and_store, get_result, delete_result, update_data
-from lesson_29.logger import logger
+from db import calculate_and_store, get_result, delete_result, update_data
+from logger import logger
 
 
 @pytest.mark.usefixtures("clean_db")

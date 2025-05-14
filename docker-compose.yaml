@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 services:
   db:
@@ -8,23 +8,38 @@ services:
       POSTGRES_PASSWORD: test_password
       POSTGRES_DB: test_db
     ports:
-      - "5432:5432"
-    restart: on-failure
+      - "5438:5432"
+    restart: unless-stopped
     volumes:
       - pgdata:/var/lib/postgresql/data
 
   app:
     build: .
+    image: pytest_app
     depends_on:
       - db
-    image: pytest_app
     ports:
       - "8000:8000"
     environment:
       DATABASE_URL: postgres://test_user:test_password@db:5432/test_db
     volumes:
-      - .:/app
       - ./allure-results:/app/allure-results
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    user: root
+    ports:
+      - "8084:8080"
+      - "50004:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - .:/app
+    environment:
+      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false"
+    command: >
+      bash -c "apt-get update && apt-get install -y lsof && /usr/bin/tini -- /usr/local/bin/jenkins.sh"
 
 volumes:
   pgdata:
+  jenkins_home:

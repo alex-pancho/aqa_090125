@@ -5,7 +5,7 @@ from sqlalchemy.exc import OperationalError
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-from lesson_29.logger import logger
+from logger import logger
 
 base = declarative_base()
 DB_URL = "postgresql://test_user:test_password@db:5432/test_db"

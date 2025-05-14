@@ -1,6 +1,6 @@
 import pytest
 
-from lesson_29.db import delete_result
+from db import delete_result
 
 
 @pytest.fixture(scope="session")
