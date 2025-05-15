@@ -1,11 +1,23 @@
 # Використовуємо офіційний образ Python версії 3.9
 FROM python:3.9
-# Копіюємо файли з локальної директорії в контейнер
-COPY . /app
-# Встановлюємо залежності для тестування
-RUN pip install -r app/requirements.txt
-# -r requirements.txt
-# Задаємо робочу директорію контейнера
+
+# Створюємо робочу директорію
 WORKDIR /app
-# Виконуємо команду для запуску тестів під час створення контейнера
-CMD ["pytest", "-v", "/app/lesson_28"]
+
+# Копіюємо requirements.txt і встановлюємо залежності
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+# Встановлюємо Allure CLI
+RUN pip install allure-pytest \
+    && curl -o allure.tgz -L https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz \
+    && tar -xzf allure.tgz \
+    && mv allure-2.27.0 /opt/allure \
+    && ln -s /opt/allure/bin/allure /usr/bin/allure \
+    && rm allure.tgz
+
+# Копіюємо весь проєкт у контейнер
+COPY . .
+
+# Не запускаємо тести автоматично — це зробить Jenkins
+CMD ["sleep", "infinity"]
