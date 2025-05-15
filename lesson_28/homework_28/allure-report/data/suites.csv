@@ -1,0 +1,2 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"Test that the user was able to successfully registered","4136","Test user registration","","Thu May 15 14:19:30 EEST 2025","passed","Thu May 15 14:19:34 EEST 2025","TestRegistration","test_registration","",""
