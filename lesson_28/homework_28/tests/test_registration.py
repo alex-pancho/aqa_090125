@@ -6,6 +6,7 @@ faker = Faker()
 
 class TestRegistration:
 
+    @allure.feature("Registration")
     @allure.title("Test user registration")
     @allure.description("Test that the user was able to successfully registered")
     @allure.severity(allure.severity_level.MINOR)
