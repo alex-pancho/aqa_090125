@@ -3,6 +3,7 @@ from get_browser import firefox, chrome
 
 from pages.home_page import HomePage
 from pages.garage_page import GaragePage
+from pages.registration_modal import RegistrationModal
 
 URL = "https://guest:welcome2qauto@qauto.forstudy.space"
 
@@ -21,3 +22,7 @@ def home_page(driver):
 @pytest.fixture
 def garage_page(driver):
     return GaragePage(driver)
+
+@pytest.fixture
+def registration_page(driver):
+    return RegistrationModal(driver)

@@ -10,7 +10,7 @@ class HomePage(BasePage):
         menu_home='//a[text()="Home"]',
         sign_in_button='//button[.="Sign In"]',
         contacts_head='//h2',
-        sign_up_button='//button[.="Sign Up"]',
+        sign_up_button='//button[text()="Sign up"]',
         username_by='//[@name="email"]',
         password_by='//*[@id="signinPassword"]',
         signin_by='//form//div[.="Login"]',
@@ -25,3 +25,4 @@ class HomePage(BasePage):
         username_by.send_keys(username)
         password_by.send_keys(password)
         signin_by.click()
+        
