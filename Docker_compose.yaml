@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  selenium:
+    image: selenium/standalone-firefox:latest
+    container_name: selenium-firefox
+    ports:
+      - "4444:4444"
+    shm_size: 2gb  # покращує стабільність для Firefox
+
+  tests:
+    build: .
+    container_name: pytest-runner
+    depends_on:
+      - selenium
+    environment:
+      - SELENIUM_URL=http://selenium:4444/wd/hub
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: pytest -v /app/lesson_28
