@@ -1,8 +1,10 @@
 import pytest
-from get_browser import firefox, chrome
+from selenium import webdriver
 
 @pytest.fixture
 def browser():
-    _driver = firefox()
-    yield _driver
-    _driver.quit()
+    """Налаштування драйвера браузера для Pytest."""
+    driver = webdriver.Chrome()
+    driver.maximize_window()
+    yield driver
+    driver.quit()
