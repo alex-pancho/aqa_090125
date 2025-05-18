@@ -1,76 +1,56 @@
 import unittest
+from homework_09 import check_string_length, is_valid_email, filter_strings
 
-try:
-    from lesson_08.homework_08 import sum_numbers_in_list
-except ImportError:
-    from homework_08 import sum_numbers_in_list
+class TestStringLenght(unittest.TestCase):
+    def test_valid_lenght(self):
+        self.assertEqual(check_string_length("20 символів111111111"), "Все ок! Довжина рядка від 8 до 20 символів")
+        self.assertEqual(check_string_length("11 символів"), "Все ок! Довжина рядка від 8 до 20 символів")
+        self.assertEqual(check_string_length("8 символ"), "Все ок! Довжина рядка від 8 до 20 символів")
+
+    def test_too_long(self):
+        with self.assertRaises(TypeError):
+            check_string_length(["20 символів1111111111"])
+
+    def test_too_short(self):
+        with self.assertRaises(TypeError):
+            check_string_length(["12"])
+
+    def test_non_string(self):
+        with self.assertRaises(TypeError):
+            check_string_length(["12", "no", "loooooong"])
+
+class TestValidEmail(unittest.TestCase):
+    def test_valid_email(self):
+        self.assertTrue(is_valid_email("email@gmail.com"))
+
+    def test_no_valid_email(self):
+        self.assertFalse(is_valid_email("email.gmail@com"))
+        self.assertFalse(is_valid_email("email@gmailcom"))
+        self.assertFalse(is_valid_email("emailgmail.com"))
 
 
-class TestSumNumbersInList(unittest.TestCase):
+class TestStringList(unittest.TestCase):
+    def test_mix_list(self):
+        actual_result = ['1', '2', 3, True, 'False', 5, '6', 7, 8, 'Python', 9, 0, 'Lorem Ipso']
+        expected_result = ['1', '2', 'False', '6', 'Python', 'Lorem Ipso']
+        self.assertEqual(filter_strings(actual_result), expected_result)
 
-    def test_01_valid_input(self):
-        """" Тест на коректні вхідні дані """
-        self.assertEqual(sum_numbers_in_list(["1,2,3", "4,0,6"]), [6, 10])
-        self.assertEqual(sum_numbers_in_list(["1,2,3,4", "1,2,3,4,50"]), [10, 60])
+    def test_only_strings(self):
+        actual_result = ["apple", "banana", "cherry"]
+        expected_result = ["apple", "banana", "cherry"]
+        self.assertEqual(filter_strings(actual_result), expected_result)
 
-    def test_02_invalid_strings(self):
-        """ Тест на некоректні типи даних всердині строки """
-        self.assertEqual(
-            sum_numbers_in_list(["1,2,3", "4/0,6", "asas7,8,9"]),
-            [6, "Не можу це зробити!", "Не можу це зробити!"],
-        )
-        self.assertEqual(
-            sum_numbers_in_list(["1,2,3", "asas7,8,9", "4,0,6"]),
-            [6, "Не можу це зробити!", 10],
-        )
+    def test_no_strings(self):
+        actual_result = [1, 2, 3, 4.5, None, True, False]
+        expected_result = []
+        self.assertEqual(filter_strings(actual_result), expected_result)
 
-    def test_03_non_string_elements(self):
-        """ Тест на некоректні типи даних всередині списку """
-        self.assertEqual(
-            sum_numbers_in_list(["1,2,3", 7]), 
-            [6, "Не можу це зробити! AttributeError"]
-        )
-        self.assertEqual(
-            sum_numbers_in_list(["1,2,3,4", "1,2,3,4,50", sum, min(1, 2)]),
-            [
-                10,
-                60,
-                "Не можу це зробити! AttributeError",
-                "Не можу це зробити! AttributeError",
-            ],
-        )
-
-    def test_04_empty_list(self):
-        """ Тест на порожній список """
-        with self.assertRaises(ValueError):
-            sum_numbers_in_list([])
-
-    def test_05_non_list_input(self):
-        """ Тест на некоректний тип вхідних даних """
-        with self.assertRaises(ValueError):
-            sum_numbers_in_list("21")
-        with self.assertRaises(ValueError):
-            sum_numbers_in_list(3)
-
-    def test_06_mixed_valid_invalid(self):
-        """ Тест на суміш коректних і некоректних даних """
-        self.assertEqual(
-            sum_numbers_in_list(
-                [
-                    "1,2,3,4",
-                    "1,2,3,4,50",
-                    "qwerty1,2,3",
-                    {"country": "Ukraine", "continent": "Europe", "size": 123},
-                ]
-            ),
-            [
-                10,
-                60,
-                "Не можу це зробити!",
-                "Не можу це зробити! AttributeError",
-            ],
-        )
+    def test_empty_list(self):
+        actual_result = [1]
+        expected_result = []
+        self.assertEqual(filter_strings(actual_result), expected_result)
 
 
 if __name__ == "__main__":
+    import unittest
     unittest.main()
