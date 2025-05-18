@@ -45,32 +45,34 @@ sum_numbers_in_list("21")  # ValueError
 - Перевірити роботу функції за допомогою `unittest`.
 
 """
+# Функція, яка приймає рядок і вираховує Його довжину.
+# Строка повинна бути довжиною від 8 до 20 символів. Виводити помилку для невалідного рядка.
+
+def check_string_length(s):
+    if not isinstance(s, str):
+        raise TypeError ("Помилка! Треба ввести рядок")
+    length = len(s)
+    if length < 8:
+        raise TypeError ("Помилка! Мінімальна кількість символів - 8")
+    if length > 20:
+        raise TypeError ("Помилка! Максимальна кількість символів - 20")
+    else:
+        return "Все ок! Довжина рядка від 8 до 20 символів"
 
 
-def sum_numbers_in_list(string_list: list):
-    """Повертає список сум чисел зі списку строк,
-    які складаються з чисел, розділених комою."""
-
-    result = []
-    for i in string_list:
-        try:
-            result.append(sum([int(x) for x in i.split(",")]))
-        except ValueError as e:
-            result.append("Не можу це зробити!")
-
-    return result
+# Валідація емейлу
+import re
 
 
-if __name__ == "__main__":
-    output = sum_numbers_in_list(["1,2,3", "4,0,6"])
-    print(output)
+def is_valid_email(email: str) -> bool:
+    if not isinstance(email, str):
+        return False
+    pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
+    return bool(re.match(pattern, email))
 
-    output = sum_numbers_in_list(["1,2,3", "4/0,6", "asas7,8,9"])
-    print(output)
-    """
-    sum_numbers_in_list(["1,2,3", "4,0,6"])  # [6, 10]
-    sum_numbers_in_list(["1,2,3", "asas7,8,9", "4,0,6"])  # [6, "Не можу це зробити!", 10]
-    sum_numbers_in_list(["1,2,3,4", 7])  # [10, "Не можу це зробити! AttributeError"]
-    sum_numbers_in_list([])  # ValueError
-    sum_numbers_in_list("21")  # ValueError
-    """
+
+# Функція, яка формує новий list,
+# який містить лише змінні типу стрінг, які присутні в lst1. Дані в лісті можуть бути будь-якими
+
+def filter_strings(lst):
+    return [item for item in lst if isinstance(item, str)]
