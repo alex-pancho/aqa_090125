@@ -1,0 +1,35 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+def enter_text_and_click(driver, frame_id, input_id, secret_text):
+    driver.switch_to.default_content()
+    driver.switch_to.frame(frame_id)
+    input_element = driver.find_element(By.ID, input_id)
+    input_element.send_keys(secret_text)
+    button = driver.find_element(By.TAG_NAME, "button")
+    button.click()
+
+def verify_alert(driver, expected_text, frame_id):
+    alert = driver.switch_to.alert
+    alert_text = alert.text
+    print(f"{frame_id} Alert text: {alert_text}")
+    assert alert_text == expected_text, f"{frame_id} verification failed"
+    alert.accept()
+    driver.switch_to.default_content()
+
+
+if __name__ == "__main__":
+    driver = webdriver.Chrome()
+    driver.get("http://localhost:8000/dz.html")
+
+# перевірка фреймів
+    enter_text_and_click(driver, "frame1", "input1", "Frame1_Secret")
+    verify_alert(driver, "Верифікація пройшла успішно!", "frame1")
+
+    enter_text_and_click(driver, "frame2", "input2", "Frame2_Secret")
+    verify_alert(driver, "Верифікація пройшла успішно!", "frame2")
+
+    print("Всі фрейми пройшли верифікацію успішно.")
+    time.sleep(2)
+    driver.quit
