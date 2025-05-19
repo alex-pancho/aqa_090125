@@ -10,16 +10,22 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'python -m venv venv'
-                sh 'source venv/bin/activate'
-                sh 'pip install pytest'
+                sh '''
+                    python3 -m venv venv
+                    . venv/bin/activate
+                    pip install --upgrade pip
+                    pip install pytest
+                '''
             }
         }
+        
 
         stage('Run Tests') {
             steps {
-                sh 'source venv/bin/activate'
-                sh 'pytest aqa_090125/lesson_31/homework_31/test_calculator.py'
+                sh '''
+                . venv/bin/activate
+                pytest aqa_090125/lesson_31/homework_31/test_calculator.py'
+                '''
             }
         }
     }
