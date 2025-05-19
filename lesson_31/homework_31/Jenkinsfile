@@ -2,11 +2,26 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Clone source') {
             steps {
-                git url: 'https://github.com/ViktoriiaLesykk/aqa_090125', branch: 'homework_31'
+                git url: 'https://github.com/alex-pancho/aqa_090125', branch: 'main'
             }
         }
+
+
+        stage('Checkout from Fork') {
+            steps {
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: 'homework_31']],
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/ViktoriiaLesykk/aqa_090125'
+                    ]]
+                ])
+            }
+        }
+
+
 
         stage('Install Dependencies') {
             steps {
