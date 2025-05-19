@@ -8,7 +8,6 @@ pipeline {
             }
         }
 
-
         stage('Checkout from Fork') {
             steps {
                 checkout([
@@ -27,18 +26,33 @@ pipeline {
                     python3 -m venv venv
                     . venv/bin/activate
                     pip install --upgrade pip
-                    pip install pytest
+                    pip install pytest pytest-html pytest-coverage
                 '''
             }
         }
-        
 
         stage('Run Tests') {
             steps {
                 sh '''
-                . venv/bin/activate
-                pytest lesson_31/homework_31/test_calculator.py
+                    . venv/bin/activate
+                    mkdir -p reports
+                    pytest lesson_31/homework_31/test_calculator.py \
+                        --junitxml=reports/results.xml \
+                        --html=reports/report.html \
+                        --self-contained-html
                 '''
+            }
+        }
+
+        stage('Publish JUnit Report') {
+            steps {
+                junit 'reports/results.xml'
+            }
+        }
+
+        stage('Archive HTML Report') {
+            steps {
+                archiveArtifacts artifacts: 'reports/report.html', allowEmptyArchive: true
             }
         }
     }
