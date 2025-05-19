@@ -1,0 +1,33 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mathdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    depends_on:
+      - db
+    environment:
+      PYTHONUNBUFFERED: 1
+      PYTHONPATH: /app
+    volumes:
+      - ./:/app
+    command: python -m pytest --alluredir=/app/allure-results -vs tests/
+
+volumes:
+  pgdata:
+
+
+
+
+
+# docker-compose build
+# docker-compose up -d
+# docker-compose run --rm app python -m pytest -vs tests/  docker-compose run --rm app
