@@ -1,0 +1,59 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone source') {
+            steps {
+                git url: 'https://github.com/alex-pancho/aqa_090125', branch: 'main'
+            }
+        }
+
+        stage('Checkout from Fork') {
+            steps {
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: 'homework_31']],
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/ViktoriiaLesykk/aqa_090125'
+                    ]]
+                ])
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh '''
+                    python3 -m venv venv
+                    . venv/bin/activate
+                    pip install --upgrade pip
+                    pip install pytest pytest-html pytest-coverage
+                '''
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh '''
+                    . venv/bin/activate
+                    mkdir -p reports
+                    pytest lesson_31/homework_31/test_calculator.py \
+                        --junitxml=reports/results.xml \
+                        --html=reports/report.html \
+                        --self-contained-html
+                '''
+            }
+        }
+
+        stage('Publish JUnit Report') {
+            steps {
+                junit 'reports/results.xml'
+            }
+        }
+
+        stage('Archive HTML Report') {
+            steps {
+                archiveArtifacts artifacts: 'reports/report.html', allowEmptyArchive: true
+            }
+        }
+    }
+}
