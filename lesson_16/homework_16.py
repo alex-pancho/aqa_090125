@@ -12,7 +12,46 @@
 у команді, якою керує керівник.
 
 Напишіть тест, який перевіряє наявність атрібутів з `Manager` та `Developer` у класі `TeamLead`
+"""
 
+
+class Employee:
+    def __init__(self, name: str, salary):
+        self.name = name.title()
+        self.salary = salary
+
+
+class Manager(Employee):
+    def __init__(self, name, salary, department: str):
+        Employee.__init__(self, name, salary)
+        self.department = department
+
+
+class Developer(Employee):
+    def __init__(self, name, salary, programming_language: str):
+        Employee.__init__(self, name, salary)
+        self.programming_language = programming_language
+
+
+class TeamLead(Manager, Developer):
+    def __init__(self, name, salary, department, programming_language, team_size: int):
+        if not isinstance(name, str):
+            raise TypeError("name повинно бути строкою")
+        if not isinstance(salary, (int, float)) or salary < 0:
+            raise ValueError("salary повинно бути невід'ємним числом")
+        if not isinstance(department, str):
+            raise TypeError("department повинно бути строкою")
+        if not isinstance(programming_language, str):
+            raise TypeError("Яprogramming_language повинно бути строкою")
+        if not isinstance(team_size, int) or team_size < 0:
+            raise ValueError("team_size повинно бути невід'ємним цілим числом")
+
+        Manager.__init__(self, name, salary, department)
+        Developer.__init__(self, name, salary, programming_language)
+        self.team_size = team_size
+
+
+"""
 Завдання 2
 
 Створіть абстрактний клас "Фігура" з абстрактними методами для отримання площі та периметру.
@@ -23,10 +62,69 @@
 
 ### Складність
 
-Висока
+Висока"
+"""
+from abc import ABC, abstractmethod
 
+
+class Figure(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+    @abstractmethod
+    def perimeter(self):
+        pass
+
+
+class Square(Figure):
+    def __init__(self, side):
+        self.__side = side
+
+    def area(self):
+        return self.__side ** 2
+
+    def perimeter(self):
+        return 4 * self.__side
+
+
+class Rectangle(Figure):
+    def __init__(self, length, width):
+        self.__length = length
+        self.__width = width
+
+    def area(self):
+        return self.__length * self.__width
+
+    def perimeter(self):
+        return 2 * (self.__length + self.__width)
+
+
+class Circle(Figure):
+    def __init__(self, radius):
+        self.__radius = radius
+
+    def area(self):
+        return round(3.14 * (self.__radius ** 2), 2)
+
+    def perimeter(self):
+        return round(2 * 3.14 * self.__radius, 2)
+
+
+Figures = [
+    Square(5),
+    Rectangle(4, 6),
+    Circle(3)
+]
+print("*" * 30)
+for Figure in Figures:
+    print(f"Figure: {Figure.__class__.__name__}")
+    print(f"Area: {Figure.area()}")
+    print(f"Perimeter: {Figure.perimeter()}")
+    print("*" * 30)
+
+"""
 # Як робити домашне завдання у Git
-
 1. **ОБОВ’ЯЗКОВО с**творіть нову гілку, яка буде використовуватись для змін, за 
     допомогою команди `git checkout -b homework##`
 2. **Виконайте ДЗ у окремому файлі homework_<#lesson>.py**
