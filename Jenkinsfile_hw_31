@@ -37,7 +37,7 @@ pipeline {
             steps {
                 sh '''
                 . venv/bin/activate
-                pytest aqa_090125/lesson_31/homework_31/test_calculator.py'
+                pytest aqa_090125/lesson_31/homework_31/test_calculator.py
                 '''
             }
         }
