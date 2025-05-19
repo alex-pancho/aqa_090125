@@ -1,0 +1,18 @@
+FROM python:3.11-slim
+
+# Рабоча директорія всередині контейнера
+WORKDIR /app
+
+# встановлення залежностей
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Копіюємо весь вміст проекту всередину контейнера
+COPY app/ app/
+COPY test/ test/
+
+# Вказуємо PYTHONPATH, щоб імпорти з `app` працювали
+ENV PYTHONPATH=/app
+
+# Запуск тестів
+CMD ["pytest", "-v", "test/test_homework_29.py"]
