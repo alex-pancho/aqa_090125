@@ -8,4 +8,4 @@ RUN pip install -r app/requirements.txt
 # Задаємо робочу директорію контейнера
 WORKDIR /app
 # Виконуємо команду для запуску тестів під час створення контейнера
-CMD ["pytest", "-v", "/app/lesson_28"]
+CMD ["pytest", "-v", "/app/lesson_31"]
