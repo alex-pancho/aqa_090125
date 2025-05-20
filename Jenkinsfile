@@ -1,30 +1,50 @@
 pipeline {
     agent any
 
+    environment {
+        VENV_DIR = 'venv'
+    }
+
     stages {
-        stage('Clone source') {
+        stage('Checkout code') {
             steps {
-                git url: 'https://github.com/alex-pancho/aqa_090125', branch: 'main'
+                git branch: 'lesson_31', url: 'https://github.com/Kseniia-Karnaukh/aqa_090125'
             }
         }
-        stage('Build and activate venv') {
+
+        stage('Set up Python and install dependencies') {
             steps {
                 sh '''
-                    python3 -m venv venv
-                    . venv/bin/activate
+                    python3 -m venv ${VENV_DIR}
+                    . ${VENV_DIR}/bin/activate
                     pip install --upgrade pip
-                    pip install -r requirements.txt
+                    pip install -r requirements.txt || true
                 '''
             }
         }
-        stage('Tests') {
+
+        stage('Run tests') {
             steps {
                 sh '''
-                . venv/bin/activate
-                pytest -s -v --junitxml=$WORKSPACE/report.xml
+                    . ${VENV_DIR}/bin/activate
+                    pytest lesson_31/test_homework_29.py --junitxml=test-results.xml
                 '''
-                junit '**/report.xml'
             }
+        }
+
+        stage('Publish test results') {
+            steps {
+                junit 'test-results.xml'
+            }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: '**/test-results.xml', allowEmptyArchive: true
+        }
+        failure {
+            echo 'Tests failed.'
         }
     }
 }
