@@ -1,17 +1,24 @@
-from pages.elements import WebElement
-
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class BasePage:
-    locators = {}
-
     def __init__(self, driver):
         self.driver = driver
+        self.wait = WebDriverWait(driver, 20)
 
-    def item(self, name: str) -> WebElement:
-        _xpath = self.locators.get(name) # self.__getattribute__(name)
-        msg = f"{self.__class__.__name__} has no xpath " + \
-              f"for element: {name}, " + \
-              f"may be typo? Exsist names is: {self.locators.keys()}"
-        if _xpath is None:
-            raise AttributeError(msg)
-        return WebElement(driver=self.driver, xpath=_xpath)
+    def item(self, locator):
+        """Пошук елемента за локатором."""
+        return self.wait.until(EC.presence_of_element_located((By.XPATH, locator)))
+
+    def click(self, locator):
+        """Клік на елемент."""
+        self.item(locator).click()
+
+    def send_keys(self, locator, keys):
+        """Відправка тексту до елемента."""
+        self.item(locator).send_keys(keys)
+
+    def is_visible(self, locator):
+        """Перевірка видимості елемента."""
+        return self.wait.until(EC.visibility_of_element_located((By.XPATH, locator)))
