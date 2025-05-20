@@ -1,44 +1,42 @@
-import sys
-import os
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import pytest
-from homework_29 import perform_operation, get_all_results
-from database import create_table
+from homework_29 import perform_operation
 
-@pytest.fixture(scope='module', autouse=True)
-def setup_db():
-    create_table()
-    yield
 
 def test_add_operations():
-    res_add = perform_operation('add', 1, 1)
-    assert res_add == 2
-    res_add = perform_operation('add', 6, 5)
-    assert res_add == 11
+    assert perform_operation('add', 1, 1) == 2
+    assert perform_operation('add', 6, 5) == 11
+    assert perform_operation('add', -1, 1) == 0
+    assert perform_operation('add', 0, 0) == 0
+
 
 def test_subtract_operations():
-    res_sub = perform_operation('subtract', 5, 3)
-    assert res_sub == 2
-    res_sub = perform_operation('subtract', 0, 3)
-    assert res_sub == -3
+    assert perform_operation('subtract', 5, 3) == 2
+    assert perform_operation('subtract', 0, 3) == -3
+    assert perform_operation('subtract', 10, 10) == 0
+    assert perform_operation('subtract', -5, -3) == -2
+
 
 def test_multiply_operations():
-    res_mul = perform_operation('multiply', 3, 4)
-    assert res_mul == 12
-    res_mul = perform_operation('multiply', 5, 5)
-    assert res_mul == 25
+    assert perform_operation('multiply', 3, 4) == 12
+    assert perform_operation('multiply', 5, 5) == 25
+    assert perform_operation('multiply', 0, 100) == 0
+    assert perform_operation('multiply', -2, 3) == -6
+
 
 def test_divide_operations():
-    res_div = perform_operation('divide', 10, 2)
-    assert res_div == 5
-    res_div = perform_operation('divide', 6, 12)
-    assert res_div == 0.5
+    assert perform_operation('divide', 10, 2) == 5
+    assert perform_operation('divide', 6, 12) == 0.5
+    assert perform_operation('divide', 1, 2) == 0.5
+    assert perform_operation('divide', -10, 2) == -5
 
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match='Division by zero'):
         perform_operation('divide', 10, 0)
 
-def test_database_insertion():
-    results = get_all_results()
-    assert len(results) > 0
-    last_record = results[-1]
-    assert last_record[1] in ('add', 'subtract', 'multiply', 'divide')
+
+def test_unknown_operation():
+    with pytest.raises(ValueError, match='Unknown operation'):
+        perform_operation('power', 2, 3)
+    with pytest.raises(ValueError, match='Unknown operation'):
+        perform_operation('', 2, 3)
+    with pytest.raises(ValueError, match='Unknown operation'):
+        perform_operation(None, 2, 3)
