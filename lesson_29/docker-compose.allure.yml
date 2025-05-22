@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  allure-viewer:
+    image: frankescobar/allure-docker-service
+    ports:
+      - "5050:5050"
+    volumes:
+      - ./allure-results:/app/allure-results
+      - ./allure-report:/app/allure-report
+    networks:
+      - allure-net
+
+  allure-ui:
+    image: frankescobar/allure-docker-service-ui
+    ports:
+      - "5252:5252"
+    environment:
+      - ALLURE_DOCKER_API_URL=http://allure-viewer:5050/allure-docker-service
+    networks:
+      - allure-net
+
+networks:
+  allure-net:

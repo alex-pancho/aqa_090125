@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: math_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - mathnet
+
+  math-app:
+    build: .
+    depends_on:
+      - db
+      - allure-viewer
+    networks:
+      - mathnet
+    volumes:
+      - ./allure-results:/app/allure-results
+
+  allure-viewer:
+    image: frankescobar/allure-docker-service
+    ports:
+      - "5050:5050"
+    volumes:
+      - ./allure-results:/app/allure-results
+      - ./allure-report:/app/allure-report
+    networks:
+      - mathnet
+
+  allure-ui:
+    image: frankescobar/allure-docker-service-ui
+    ports:
+      - "5252:5252"
+    environment:
+      - ALLURE_DOCKER_API_URL=http://allure-viewer:5050/allure-docker-service
+    networks:
+      - mathnet
+
+networks:
+  mathnet:

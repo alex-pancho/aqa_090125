@@ -174,3 +174,7 @@ cython_debug/
 .pypirc
 
 .DS_Store 
+
+# Allure output directories
+lesson_29/allure-results/
+lesson_29/allure-report/
